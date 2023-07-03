@@ -1,12 +1,17 @@
-import { Reset } from "styled-reset";
+import styled from "styled-components";
+import Intro from "./pages/Intro";
 
 function App() {
   return (
-    <div className="App">
-      <Reset />
-      안녕하세요
-    </div>
+    <Wrap>
+      <Intro />
+    </Wrap>
   );
 }
 
 export default App;
+
+const Wrap = styled.main`
+  width: 100%;
+  overflow: hidden;
+`;
