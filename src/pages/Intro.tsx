@@ -36,24 +36,38 @@ const Left = styled.section`
   align-items: center;
 `;
 const Top = styled.article`
+  display: flex;
   width: 100%;
 `;
-const Upline = styled.div``;
+const Upline = styled.div`
+  width: 27%;
+  height: 30px;
+  border-bottom: 2px solid white;
+`;
 const Position = styled.span`
-  font-size: 35px;
+  font-size: 32px;
+  letter-spacing: 1px;
 `;
 const Title = styled.span`
-  font-size: 150px;
+  font-size: 120px;
   color: #1f485e;
-  font-weight: 600;
+  font-weight: bold;
   -webkit-text-stroke: 5px white;
-  letter-spacing: 2px;
+  font-family: sans-serif;
+  letter-spacing: 3px;
 `;
 const Right = styled.section`
   width: 100%;
   display: flex;
+  justify-content: flex-end;
 `;
-const Downline = styled.div``;
+const Downline = styled.div`
+  width: 27%;
+  height: 3px;
+  border-bottom: 2px solid white;
+  height: 30px;
+`;
 const Name = styled.span`
-  font-size: 35px;
+  font-size: 32px;
+  letter-spacing: 1px;
 `;
