@@ -5,14 +5,14 @@ const Intro = () => {
     <Wrap>
       <Left>
         <Top>
-          <Upline></Upline>
+          <Upline />
           <Position>Front_end</Position>
         </Top>
         <Title>PORTFOLIO</Title>
       </Left>
       <Right>
         <Name>Ji_hyeon</Name>
-        <Downline></Downline>
+        <Downline />
       </Right>
     </Wrap>
   );
