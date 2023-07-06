@@ -1,16 +1,70 @@
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
 
-const Intro = () => {
+const Intro = () => {  
+  const leftRef = useRef<HTMLDivElement | null>(null);
+  const rightRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const options: IntersectionObserverInit = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.01,
+    };
+
+    const handleLeftMove: IntersectionObserverCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          leftRef.current?.classList.add("fixed");
+        } else {
+          leftRef.current?.classList.remove("fixed");
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleLeftMove, options);
+    observer.observe(leftRef.current!);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    const options: IntersectionObserverInit = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.01,
+    };
+
+    const handleRightMove: IntersectionObserverCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          rightRef.current?.classList.add("fixed");
+        } else {
+          rightRef.current?.classList.remove("fixed");
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleRightMove, options);
+    observer.observe(rightRef.current!);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <Wrap>
-      <Left>
+      <Left ref={leftRef}>
         <Top>
           <Upline />
           <Position>Front_end</Position>
         </Top>
         <Title>PORTFOLIO</Title>
       </Left>
-      <Right>
+      <Right ref={rightRef}>
         <Name>Ji_hyeon</Name>
         <Downline />
       </Right>
@@ -34,6 +88,11 @@ const Left = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: 300px;
+  transition: margin-right 0.5s ease-in; 
+  &.fixed {
+    margin-right: 0px;
+  }
 `;
 const Top = styled.article`
   display: flex;
@@ -60,6 +119,11 @@ const Right = styled.section`
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  margin-left: 300px;
+  transition: margin-left 0.5s ease-in; 
+  &.fixed {
+    margin-left: 0px;
+  }
 `;
 const Downline = styled.div`
   width: 27%;

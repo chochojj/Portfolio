@@ -3,14 +3,14 @@ import styled, { keyframes } from "styled-components";
 import treat from "../images/treat.svg";
 
 const About = () => {
-  const imageRef = useRef<HTMLImageElement>(null);
-  const titleRef = useRef<HTMLElement>(null);
+  const imageRef = useRef<HTMLImageElement | null>(null);
+  const titleRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
-    const options = {
+    const options: IntersectionObserverInit = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.1,
+      threshold: 0.01,
     };
 
     const ImgRotate: IntersectionObserverCallback = (entries) => {
@@ -32,7 +32,7 @@ const About = () => {
   }, []);
 
   useEffect(() => {
-    const options = {
+    const options: IntersectionObserverInit = {
       root: null,
       rootMargin: "0px",
       threshold: 0.01,
@@ -67,10 +67,11 @@ const About = () => {
         <Outline ref={titleRef}>
           <Title>About</Title>
           <Line />
-          <Info>프론트엔드 개발자 조지현 입니다. 동적인 화면을 구현하고</Info>
-          <Info>사용자와 상호작용하는 것에 매력을 느껴 개발자를 꿈꾸게 되었습니다</Info>
-          <Info>저쩌구</Info>
-          <Info>어쩌구</Info>
+          <Info>프론트엔드 개발자 조지현 입니다. </Info>
+          <Info>동적인 화면을 구현하며 사용자와 상호작용하는 것에 매력을 느껴  </Info>
+          <Info> 개발자로서의 꿈을 키워나가고 있습니다. 한계가 없는 아이디어를  </Info>
+          <Info> 화면에 구현하기 위해 새로운 기술을 배우는 도전을 두려움 없이 </Info>
+          <Info> 시도하고 있습니다. </Info>
         </Outline>
       </Up>
     </Wrap>
@@ -110,20 +111,20 @@ const rotateAnimation = keyframes`
 
 const Circle = styled.div`
   position: absolute;
-  width: 600px;
-  height: 600px;
+  width: 730px;
+  height: 730px;
   overflow: hidden;
 
   img{
     position: absolute;
-    top: -160px;
-    left: -120px;
-    width: 650px;
-    height: 650px;
+    top: -320px;
+    left: -85px;
+    width: 800px;
+    height: 800px;
     padding-bottom: 150px;
     object-fit: contain;
     transform:rotate(-155deg);
-    animation: ${rotateAnimation} 17s linear infinite;
+    animation: ${rotateAnimation} 25s linear infinite;
   }
 
 `;
@@ -133,9 +134,9 @@ const Outline = styled.article`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-top: 50px;
   padding-left: 250px;
-  padding-bottom: 30px;
   transition: padding-left 1s ease-in; 
   &.fixed {
     padding-left: 100px; 
@@ -143,7 +144,7 @@ const Outline = styled.article`
 `;
 
 const Title = styled.span`
-  font-size: 90px;
+  font-size: 80px;
   color: #1f485e;
   font-weight: bold;
   -webkit-text-stroke: 2px white;
