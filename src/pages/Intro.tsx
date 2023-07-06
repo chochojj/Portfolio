@@ -52,7 +52,7 @@ const Title = styled.span`
   font-size: 120px;
   color: #1f485e;
   font-weight: bold;
-  -webkit-text-stroke: 5px white;
+  -webkit-text-stroke: 4px white;
   font-family: sans-serif;
   letter-spacing: 3px;
 `;
