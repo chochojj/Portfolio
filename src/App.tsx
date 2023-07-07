@@ -17,7 +17,7 @@ function App() {
   };
   return (
     <Wrap>
-      <Nav />
+      {/* <Nav /> */}
       <Main>
         <SectionsContainer {...options}>
           <Section>

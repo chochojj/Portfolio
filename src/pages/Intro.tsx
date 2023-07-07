@@ -102,11 +102,29 @@ const Upline = styled.div`
   width: 27%;
   height: 30px;
   border-bottom: 2px solid white;
+
+  @media screen and (max-width: 1320px) {
+    width: 17%;
+  }
+
+  @media screen and (max-width: 980px) {
+    width: 7%;
+  }
+
+  @media screen and (max-width: 700px){
+    display: none;
+  }
 `;
+
 const Position = styled.span`
   font-size: 32px;
   letter-spacing: 1px;
+
+  @media screen and (max-width: 700px){
+    font-size: 24px;
+  }
 `;
+
 const Title = styled.span`
   font-size: 120px;
   color: #1f485e;
@@ -114,7 +132,17 @@ const Title = styled.span`
   -webkit-text-stroke: 4px white;
   font-family: sans-serif;
   letter-spacing: 3px;
+
+  @media screen and (max-width: 700px){
+    font-size: 80px;
+  }
+
+  @media screen and (max-width: 480px){
+    font-size: 60px;
+    -webkit-text-stroke: 2px white;
+  }
 `;
+
 const Right = styled.section`
   width: 100%;
   display: flex;
@@ -130,8 +158,24 @@ const Downline = styled.div`
   height: 3px;
   border-bottom: 2px solid white;
   height: 30px;
+
+  @media screen and (max-width: 1320px) {
+    width: 17%;
+  }
+
+  @media screen and (max-width: 980px) {
+    width: 7%;
+  }
+
+  @media screen and (max-width: 700px){
+    display: none;
+  }
 `;
 const Name = styled.span`
   font-size: 32px;
   letter-spacing: 1px;
+
+  @media screen and (max-width: 700px){
+    font-size: 24px;
+  }
 `;

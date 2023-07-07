@@ -148,6 +148,11 @@ const Circle = styled.div`
     object-fit: contain;
     transform:rotate(-155deg);
     animation: ${rotateAnimation} 25s linear infinite;
+
+    @media screen and (max-width: 1320px) {
+      width: 650px;
+      height: 650px;
+    }
   }
 
 `;

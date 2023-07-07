@@ -16,15 +16,14 @@ const List = () => {
   
 export default List;
 
-const Lists = styled.ul`
+const Lists = styled.div`
     position: absolute;
     height: 100%;
     display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: scroll;
     white-space: nowrap;
 `
-const Content = styled.li`
+const Content = styled.div`
     width: 100vw;
     height: 100%;
 `
