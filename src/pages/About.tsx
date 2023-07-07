@@ -67,13 +67,34 @@ const About = () => {
         <Outline ref={titleRef}>
           <Title>About</Title>
           <Line />
-          <Info>프론트엔드 개발자 조지현 입니다. </Info>
-          <Info>동적인 화면을 구현하며 사용자와 상호작용하는 것에 매력을 느껴  </Info>
-          <Info> 개발자로서의 꿈을 키워나가고 있습니다. 한계가 없는 아이디어를  </Info>
-          <Info> 화면에 구현하기 위해 새로운 기술을 배우는 도전을 두려움 없이 </Info>
-          <Info> 시도하고 있습니다. </Info>
+          <Text>프론트엔드 개발자 조지현 입니다. </Text>
+          <Text>동적인 화면을 구현하며 사용자와 상호작용하는 것에 매력을 느껴 </Text>
+          <Text> 개발자로서의 꿈을 키워나가고 있습니다. 한계가 없는 아이디어를 </Text>
+          <Text> 화면에 구현하기 위해 새로운 기술을 배우는 도전을 두려움 없이 </Text>
+          <Text> 시도하고 있습니다. </Text>
         </Outline>
       </Up>
+      <Info>
+        <Category>Profile</Category>
+        <Profile>
+          <div>
+            <span>이름</span>
+            <span>조지현</span>
+          </div>
+          <div>
+            <span>E-mail</span>
+            <span>hyechojj@gmail.com</span>
+          </div>
+          <div>
+            <span>이름</span>
+            <span>조지현</span>
+          </div>
+        </Profile>
+        <Category>Stack</Category>
+        <Stack>
+
+        </Stack>
+      </Info>
     </Wrap>
   );
 };
@@ -84,6 +105,8 @@ const Wrap = styled.main`
   width: 100%;
   height: 100vh;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   overflow: hidden;
 `;
 
@@ -160,8 +183,30 @@ const Line = styled.div`
   border-bottom: 3px solid white;
 `;
 
-const Info = styled.span`
+const Text = styled.span`
   padding-left: 20px;
   font-size: 22px;
   margin-bottom: 5px;
 `;
+
+const Info = styled.section`
+  width: 1300px;
+  height: 450px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.3);
+`
+
+const Category = styled.h2``
+
+const Profile = styled.article`
+
+  
+-webkit-user-select: text;
+-moz-user-select: text;
+-ms-user-select: text;
+user-select: text;
+  
+`
+
+const Stack = styled.article``

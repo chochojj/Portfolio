@@ -24,12 +24,7 @@ menu, nav, output, ruby, section, summary,
 time, mark, audio, video, input,textarea {
 	box-sizing: border-box;
 	font: inherit;
-	vertical-align: baseline;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	
+	vertical-align: baseline;	
 }
 
 
@@ -41,15 +36,19 @@ html {
 	font-family: -apple-system, "system-ui", Segoe UI, BlinkMacSystemFont
     Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
     sans-serif;
-	::-webkit-scrollbar {
+	/* ::-webkit-scrollbar {
         width: 0;
         background-color: transparent;
-    }
+    } */
 }
 
 body {
 	font-family: Pretendard-Regular;
     background-color: #1F485E;
+    -webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
   }
 `;
 
