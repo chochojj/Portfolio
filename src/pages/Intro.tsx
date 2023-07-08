@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
 
-const Intro = () => {  
+const Intro = () => {
   const leftRef = useRef<HTMLDivElement | null>(null);
   const rightRef = useRef<HTMLDivElement | null>(null);
 
@@ -89,7 +89,7 @@ const Left = styled.section`
   flex-direction: column;
   align-items: center;
   margin-right: 300px;
-  transition: margin-right 0.5s ease-in; 
+  transition: margin-right 0.5s ease-in;
   &.fixed {
     margin-right: 0px;
   }
@@ -111,7 +111,7 @@ const Upline = styled.div`
     width: 7%;
   }
 
-  @media screen and (max-width: 700px){
+  @media screen and (max-width: 700px) {
     display: none;
   }
 `;
@@ -120,7 +120,7 @@ const Position = styled.span`
   font-size: 32px;
   letter-spacing: 1px;
 
-  @media screen and (max-width: 700px){
+  @media screen and (max-width: 700px) {
     font-size: 24px;
   }
 `;
@@ -133,11 +133,11 @@ const Title = styled.span`
   font-family: sans-serif;
   letter-spacing: 3px;
 
-  @media screen and (max-width: 700px){
+  @media screen and (max-width: 700px) {
     font-size: 80px;
   }
 
-  @media screen and (max-width: 480px){
+  @media screen and (max-width: 480px) {
     font-size: 60px;
     -webkit-text-stroke: 2px white;
   }
@@ -148,7 +148,7 @@ const Right = styled.section`
   display: flex;
   justify-content: flex-end;
   margin-left: 300px;
-  transition: margin-left 0.5s ease-in; 
+  transition: margin-left 0.5s ease-in;
   &.fixed {
     margin-left: 0px;
   }
@@ -167,7 +167,7 @@ const Downline = styled.div`
     width: 7%;
   }
 
-  @media screen and (max-width: 700px){
+  @media screen and (max-width: 700px) {
     display: none;
   }
 `;
@@ -175,7 +175,7 @@ const Name = styled.span`
   font-size: 32px;
   letter-spacing: 1px;
 
-  @media screen and (max-width: 700px){
+  @media screen and (max-width: 700px) {
     font-size: 24px;
   }
 `;
