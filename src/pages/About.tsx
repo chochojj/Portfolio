@@ -109,7 +109,7 @@ const About = () => {
             <span>hyechojj@gmail.com</span>
           </div>
           <div>
-            <span>Tel</span>
+            <span>Phone</span>
             <span>010-6522-4733</span>
           </div>
           <div>
@@ -120,62 +120,38 @@ const About = () => {
         <Category>Skill</Category>
         <Skill>
           <div>
-            <span>Frontend</span>
-            <Stack>
-              <span>
-                <AiOutlineHtml5 />
-                <p>Html</p>
-              </span>
-              <span>
-                <DiCss3 />
-                <p>CSS</p>
-              </span>
-              <span>
-                <RiJavascriptFill />
-                <p>Javascript</p>
-              </span>
-              <span>
-                <FaReact />
-                <p>React</p>
-              </span>
-              <span>
-                <SiStyledcomponents />
-                <p>Styled-component</p>
-              </span>
-              <span>
-                <BiLogoTypescript />
-                <p>Typescript</p>
-              </span>
-              <span>
-                <SiRedux />
-                <p>Redux-toolkit</p>
-              </span>
-              <span>
-                <RiBearSmileFill />
-                <p>Zustand</p>
-              </span>
-            </Stack>
-          </div>
-          <div>
-            <span>etc</span>
-            <Stack>
-              <span>
-                <AiFillGithub />
-                <p>Git</p>
-              </span>
-              <span>
-                <FiFigma />
-                <p>Figma</p>
-              </span>
-              <span>
-                <SiPostman />
-                <p>Postman</p>
-              </span>
-              <span>
-                <FaAws />
-                <p>AWS S3</p>
-              </span>
-            </Stack>
+            <div>
+              <Field>Frontend</Field>
+              <Stack>
+                <img src="https://img.shields.io/badge/htnl5-E34F26?style=for-the-badge&logo=htnl5&logoColor=white" />
+
+                <img src="https://img.shields.io/badge/css3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
+
+                <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white" />
+
+                <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white" />
+
+                <img src="https://img.shields.io/badge/styled_components-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white" />
+
+                <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+
+                <img src="https://img.shields.io/badge/Redux_toolkit-764ABC?style=for-the-badge&logo=redux&logoColor=white" />
+
+                <img src="https://img.shields.io/badge/zustand-302683?style=for-the-badge&logo=zustand&logoColor=white" />
+              </Stack>
+            </div>
+            <div>
+              <Field>etc</Field>
+              <Stack>
+                <img src="https://img.shields.io/badge/git-181717?style=for-the-badge&logo=git&logoColor=white" />
+
+                <img src="https://img.shields.io/badge/figma-5B0BB5?style=for-the-badge&logo=figma&logoColor=white" />
+
+                <img src="https://img.shields.io/badge/postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white" />
+
+                <img src="https://img.shields.io/badge/AWS S3-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white" />
+              </Stack>
+            </div>
           </div>
         </Skill>
       </Info>
@@ -192,6 +168,9 @@ const Wrap = styled.main`
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  @media screen and (max-width: 900px) {
+    flex-direction: space-evenly;
+  }
 
   span {
     display: flex;
@@ -203,10 +182,17 @@ const Up = styled.section`
   height: 45%;
   display: flex;
   justify-content: space-between;
+  @media screen and (max-width: 900px) {
+    width: 100%;
+    padding-left: 100px;
+  }
 `;
 const Round = styled.article`
   width: 600px;
   height: 100%;
+  @media screen and (max-width: 900px) {
+    display: none;
+  }
 `;
 
 const rotateAnimation = keyframes`
@@ -239,6 +225,11 @@ const Circle = styled.div`
       width: 650px;
       height: 650px;
     }
+
+    @media screen and (max-width: 980px) {
+      width: 600px;
+      height: 600px;
+    }
   }
 `;
 
@@ -251,8 +242,23 @@ const Outline = styled.article`
   margin-top: 50px;
   padding-left: 250px;
   transition: padding-left 1s ease-in;
+
+  @media screen and (max-width: 1320px) {
+    width: 800px;
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+    padding-left: 100px;
+    height: fit-content;
+  }
+
   &.fixed {
     padding-left: 100px;
+
+    @media screen and (max-width: 900px) {
+      padding-left: 20px;
+    }
   }
 `;
 
@@ -264,6 +270,14 @@ const Title = styled.span`
   font-family: sans-serif;
   padding-left: 20px;
   letter-spacing: 3px;
+
+  @media screen and (max-width: 1320px) {
+    font-size: 70px;
+  }
+
+  @media screen and (max-width: 980px) {
+    font-size: 50px;
+  }
 `;
 
 const Line = styled.div`
@@ -277,11 +291,19 @@ const Text = styled.span`
   padding-left: 20px;
   font-size: 22px;
   margin-bottom: 5px;
+
+  @media screen and (max-width: 1320px) {
+    font-size: 18px;
+  }
+
+  @media screen and (max-width: 980px) {
+    font-size: 16px;
+  }
 `;
 
 const Info = styled.section`
   width: 1300px;
-  height: 450px;
+  height: fit-content;
   border-radius: 10px;
   backdrop-filter: blur(5px);
   background-color: rgba(255, 255, 255, 0.3);
@@ -290,10 +312,16 @@ const Info = styled.section`
   justify-content: space-evenly;
   align-items: center;
   padding: 20px;
+
+  @media screen and (max-width: 1320px) {
+    width: 90%;
+  }
 `;
 
 const Category = styled.h2`
   font-size: 24px;
+  margin-top: 25px;
+  margin-bottom: 15px;
 `;
 
 const Profile = styled.article`
@@ -311,16 +339,62 @@ const Profile = styled.article`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    padding: 10px;
+    padding: 20px 0px;
+    margin: 0px 15px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
   }
   span:first-child {
     font-size: 20px;
+    font-weight: bold;
+    color: #1f485e;
     margin-bottom: 5px;
   }
 `;
 
-const Skill = styled.article``;
+const Skill = styled.article`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  & > div {
+    width: 98%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    padding: 15px 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+`;
+
+const Field = styled.span`
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #1f485e;
+`;
 
 const Stack = styled.div`
   display: flex;
+  flex-wrap: wrap;
+
+  img {
+    margin-left: 5px;
+    margin-bottom: 5px;
+  }
 `;
+
+// @media screen and (max-width: 980px) {
+//   width: 7%;
+// }
+
+// @media screen and (max-width: 700px) {
+//   display: none;
+// }
+
+// @media screen and (max-width: 480px) {
+//   font-size: 60px;
+//   -webkit-text-stroke: 2px white;
+// }
