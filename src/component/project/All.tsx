@@ -9,7 +9,7 @@ import { useProjectStore } from "../../store/store";
 import { useCallback } from "react";
 
 const All = ({ projectData }: { projectData: Project[] }) => {
-  const { viewMode, setViewMode } = useStore();
+  const { setViewMode } = useStore();
   const { selectedProject, setSelectedProject } = useProjectStore();
 
   const handleDetailView = useCallback(
@@ -113,6 +113,10 @@ const Wrap = styled.div`
     margin: 5px 0px;
     width: 100%;
     object-fit: contain;
+
+    @media screen and (max-width: 850px) {
+      display: none;
+    }
   }
 
   button {
@@ -137,6 +141,17 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media screen and (max-width: 1320px) {
+    height: 450px;
+  }
+
+  @media screen and (max-width: 850px) {
+    height: 300px;
+  }
+
+  @media screen and (max-width: 560px) {
+    margin: 10px;
+  }
 `;
 const Title = styled.div`
   display: flex;
@@ -149,6 +164,11 @@ const Title = styled.div`
     margin-right: 10px;
     font-weight: 600;
     color: #1f485e;
+  }
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 const Link = styled.span`

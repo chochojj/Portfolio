@@ -3,20 +3,22 @@ import { useCallback } from "react";
 import { useStore } from "../store/store";
 import All from "../component/project/All";
 import List from "../component/project/List";
+import Tab from "../component/project/Tab";
 import projectData from "../data/projectData";
 import { useProjectStore } from "../store/store";
 
 const Project = () => {
   const { viewMode, setViewMode } = useStore();
-  const { selectedProject, setSelectedProject } = useProjectStore();
+  const { setSelectedProject } = useProjectStore();
 
   const handleAllView = useCallback(() => {
     setViewMode("all");
-  }, [setViewMode]);
+    setSelectedProject("portfolio");
+  }, [setViewMode, setSelectedProject]);
 
   const handleTabView = useCallback(() => {
     setViewMode("tab");
-    setSelectedProject(selectedProject);
+    setSelectedProject("portfolio");
   }, [setViewMode, setSelectedProject]);
 
   return (
@@ -38,7 +40,12 @@ const Project = () => {
       <View>
         {/* 상태값에 따라 다른 내용 표시 */}
         {viewMode === "all" && <All projectData={projectData} />}
-        {viewMode === "tab" && <List projectData={projectData} />}
+        {viewMode === "tab" && (
+          <>
+            <List projectData={projectData} />
+            <Tab projectData={projectData} />
+          </>
+        )}
       </View>
     </Wrap>
   );
@@ -76,6 +83,9 @@ const Text = styled.span`
   margin-top: 50px;
   padding-right: 30px;
   letter-spacing: 3px;
+  @media screen and (max-width: 1320px) {
+    font-size: 70px;
+  }
 `;
 
 const Line = styled.div`
@@ -117,6 +127,7 @@ const TabView = styled.button<{ active: boolean }>`
 `;
 
 const View = styled.article`
+  position: relative;
   width: 100%;
   height: calc(100% - 200px);
   display: flex;
