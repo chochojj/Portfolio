@@ -1,39 +1,47 @@
 import styled from "styled-components";
-import { useCallback } from 'react';
-import { useStore } from '../store/store'
+import { useCallback } from "react";
+import { useStore } from "../store/store";
+import All from "../component/project/All";
 import List from "../component/project/List";
+import projectData from "../data/projectData";
+import { useProjectStore } from "../store/store";
 
 const Project = () => {
   const { viewMode, setViewMode } = useStore();
+  const { selectedProject, setSelectedProject } = useProjectStore();
 
-  const handleScrollView = useCallback(() => {
-    setViewMode('scroll');
+  const handleAllView = useCallback(() => {
+    setViewMode("all");
   }, [setViewMode]);
 
   const handleTabView = useCallback(() => {
-    setViewMode('tab');
-  }, [setViewMode]);
-
+    setViewMode("tab");
+    setSelectedProject(selectedProject);
+  }, [setViewMode, setSelectedProject]);
 
   return (
-  <Wrap>
-     <Top>
+    <Wrap>
+      <Top>
         <Title>
           <Text>Project</Text>
           <Line />
         </Title>
         <VeiwButton>
-          <ScrollView onClick={handleScrollView} active={viewMode === 'scroll'}>스크롤</ScrollView>
-          <TabView onClick={handleTabView} active={viewMode === 'tab'}>탭</TabView>
+          <ScrollView onClick={handleAllView} active={viewMode === "all"}>
+            전체보기
+          </ScrollView>
+          <TabView onClick={handleTabView} active={viewMode === "tab"}>
+            상세보기
+          </TabView>
         </VeiwButton>
       </Top>
       <View>
         {/* 상태값에 따라 다른 내용 표시 */}
-        {/* {viewMode === 'scroll' && <p>스크롤 모드 내용</p>}
-        {viewMode === 'tab' && <p>탭 모드 내용</p>} */}
-        <List/>
+        {viewMode === "all" && <All projectData={projectData} />}
+        {viewMode === "tab" && <List projectData={projectData} />}
       </View>
-  </Wrap>)
+    </Wrap>
+  );
 };
 
 export default Project;
@@ -58,9 +66,9 @@ const Title = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-`
+`;
 const Text = styled.span`
-  font-size : 80px;
+  font-size: 80px;
   color: #1f485e;
   font-weight: bold;
   -webkit-text-stroke: 2px white;
@@ -76,40 +84,43 @@ const Line = styled.div`
   margin-top: 15px;
   margin-bottom: 25px;
   border-bottom: 3px solid white;
-  `;
+`;
 
 const VeiwButton = styled.div`
   width: fit-content;
   height: fit-content;
   display: flex;
   justify-content: space-around;
-  margin-right:100px;
-  margin-bottom:25px;
+  margin-right: 100px;
+  margin-bottom: 25px;
 
-  button{
+  button {
     background-color: transparent;
     height: 30px;
-    font-size : 20px;
+    font-size: 20px;
     cursor: pointer;
   }
-`
+`;
 
 const ScrollView = styled.button<{ active: boolean }>`
   padding-right: 12px;
   border: none;
-  color: ${({ active }) => (active ? '#FFDDAB' : 'white')};
-  font-weight : ${({ active }) => (active ? 'bold' : 'normal')};
-`
+  color: ${({ active }) => (active ? "#FFDDAB" : "white")};
+  font-weight: ${({ active }) => (active ? "bold" : "normal")};
+`;
 const TabView = styled.button<{ active: boolean }>`
   padding-left: 12px;
   border: none;
   border-left: 3px solid white;
-  color: ${({ active }) => (active ? '#FFDDAB' : 'white')};
-  font-weight : ${({ active }) => (active ? 'bold' : 'normal')};
-`
+  color: ${({ active }) => (active ? "#FFDDAB" : "white")};
+  font-weight: ${({ active }) => (active ? "bold" : "normal")};
+`;
 
 const View = styled.article`
   width: 100%;
-  height: calc(100vh - 200px);
+  height: calc(100% - 200px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgba(255, 255, 255, 0.3);
-`
+`;

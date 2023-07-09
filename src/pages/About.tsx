@@ -1,19 +1,6 @@
 import { useEffect, useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import treat from "../images/treat.svg";
-import { AiOutlineHtml5 } from "react-icons/ai";
-import { DiCss3 } from "react-icons/di";
-import { RiJavascriptFill } from "react-icons/ri";
-import { FaReact } from "react-icons/fa";
-import { BiLogoTypescript } from "react-icons/bi";
-import { SiStyledcomponents } from "react-icons/si";
-import { SiRedux } from "react-icons/si";
-import { RiBearSmileFill } from "react-icons/ri";
-
-import { AiFillGithub } from "react-icons/ai";
-import { FiFigma } from "react-icons/fi";
-import { SiPostman } from "react-icons/si";
-import { FaAws } from "react-icons/fa";
 
 const About = () => {
   const imageRef = useRef<HTMLImageElement | null>(null);
@@ -113,7 +100,7 @@ const About = () => {
             <span>010-6522-4733</span>
           </div>
           <div>
-            <span>BOOTCAMP</span>
+            <span>BootCamp</span>
             <span>코드스테이츠 43기</span>
           </div>
         </Profile>
@@ -123,33 +110,69 @@ const About = () => {
             <div>
               <Field>Frontend</Field>
               <Stack>
-                <img src="https://img.shields.io/badge/htnl5-E34F26?style=for-the-badge&logo=htnl5&logoColor=white" />
+                <img
+                  src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=htnl5&logoColor=white"
+                  alt="html5"
+                />
 
-                <img src="https://img.shields.io/badge/css3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
+                <img
+                  src="https://img.shields.io/badge/css3-1572B6?style=for-the-badge&logo=css3&logoColor=white"
+                  alt="css3"
+                />
 
-                <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white" />
+                <img
+                  src="https://img.shields.io/badge/Javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white"
+                  alt="javascript"
+                />
 
-                <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white" />
+                <img
+                  src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white"
+                  alt="react"
+                />
 
-                <img src="https://img.shields.io/badge/styled_components-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white" />
+                <img
+                  src="https://img.shields.io/badge/styled_components-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white"
+                  alt="styled_component"
+                />
 
-                <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+                <img
+                  src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"
+                  alt="typescript"
+                />
 
-                <img src="https://img.shields.io/badge/Redux_toolkit-764ABC?style=for-the-badge&logo=redux&logoColor=white" />
+                <img
+                  src="https://img.shields.io/badge/Redux_toolkit-764ABC?style=for-the-badge&logo=redux&logoColor=white"
+                  alt="Redux_toolkit"
+                />
 
-                <img src="https://img.shields.io/badge/zustand-302683?style=for-the-badge&logo=zustand&logoColor=white" />
+                <img
+                  src="https://img.shields.io/badge/zustand-302683?style=for-the-badge&logo=zustand&logoColor=white"
+                  alt="zustand"
+                />
               </Stack>
             </div>
             <div>
               <Field>etc</Field>
               <Stack>
-                <img src="https://img.shields.io/badge/git-181717?style=for-the-badge&logo=git&logoColor=white" />
+                <img
+                  src="https://img.shields.io/badge/git-181717?style=for-the-badge&logo=git&logoColor=white"
+                  alt="git"
+                />
 
-                <img src="https://img.shields.io/badge/figma-5B0BB5?style=for-the-badge&logo=figma&logoColor=white" />
+                <img
+                  src="https://img.shields.io/badge/figma-5B0BB5?style=for-the-badge&logo=figma&logoColor=white"
+                  alt="figma"
+                />
 
-                <img src="https://img.shields.io/badge/postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white" />
+                <img
+                  src="https://img.shields.io/badge/postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white"
+                  alt="postman"
+                />
 
-                <img src="https://img.shields.io/badge/AWS S3-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white" />
+                <img
+                  src="https://img.shields.io/badge/AWS S3-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white"
+                  alt="AWS S3"
+                />
               </Stack>
             </div>
           </div>
@@ -169,7 +192,11 @@ const Wrap = styled.main`
   align-items: center;
   overflow: hidden;
   @media screen and (max-width: 900px) {
-    flex-direction: space-evenly;
+    justify-content: space-evenly;
+  }
+
+  @media screen and (max-width: 700px) {
+    justify-content: space-around;
   }
 
   span {
@@ -182,9 +209,11 @@ const Up = styled.section`
   height: 45%;
   display: flex;
   justify-content: space-between;
+
   @media screen and (max-width: 900px) {
     width: 100%;
-    padding-left: 100px;
+    height: fit-content;
+    margin-bottom: 40px;
   }
 `;
 const Round = styled.article`
@@ -278,6 +307,11 @@ const Title = styled.span`
   @media screen and (max-width: 980px) {
     font-size: 50px;
   }
+
+  @media screen and (max-width: 500px) {
+    font-size: 40px;
+    -webkit-text-stroke: 1px white;
+  }
 `;
 
 const Line = styled.div`
@@ -285,6 +319,11 @@ const Line = styled.div`
   height: 10px;
   margin-bottom: 15px;
   border-bottom: 3px solid white;
+
+  @media screen and (max-width: 500px) {
+    height: 7px;
+    border-bottom: 2px solid white;
+  }
 `;
 
 const Text = styled.span`
@@ -298,6 +337,14 @@ const Text = styled.span`
 
   @media screen and (max-width: 980px) {
     font-size: 16px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 400px) {
+    font-size: 12px;
   }
 `;
 
@@ -316,24 +363,41 @@ const Info = styled.section`
   @media screen and (max-width: 1320px) {
     width: 90%;
   }
+
+  @media screen and (max-width: 900px) {
+    padding: 10px;
+  }
+
+  @media screen and (max-width: 500px) {
+    margin-bottom: 50px;
+  }
 `;
 
 const Category = styled.h2`
   font-size: 24px;
   margin-top: 25px;
   margin-bottom: 15px;
+
+  @media screen and (max-width: 900px) {
+    margin-top: 15px;
+  }
 `;
 
 const Profile = styled.article`
   width: 100%;
   display: flex;
+  justify-content: space-around;
   -webkit-user-select: text;
   -moz-user-select: text;
   -ms-user-select: text;
   user-select: text;
 
+  @media screen and (max-width: 900px) {
+    flex-wrap: wrap;
+  }
+
   div {
-    width: 100%;
+    width: 23%;
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -343,12 +407,47 @@ const Profile = styled.article`
     margin: 0px 15px;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.3);
+
+    @media screen and (max-width: 900px) {
+      width: 48%;
+      margin: 0px 2px;
+      padding: 10px 10px;
+      margin-bottom: 4px;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    @media screen and (max-width: 500px) {
+      height: 50%;
+      flex-direction: column;
+    }
   }
   span:first-child {
     font-size: 20px;
     font-weight: bold;
     color: #1f485e;
     margin-bottom: 5px;
+
+    @media screen and (max-width: 900px) {
+      font-size: 16px;
+      margin-bottom: 0px;
+    }
+
+    @media screen and (max-width: 700px) {
+      font-size: 15px;
+    }
+  }
+  span:last-child {
+    font-size: 17px;
+
+    @media screen and (max-width: 900px) {
+      font-size: 14px;
+    }
+
+    @media screen and (max-width: 700px) {
+      font-size: 12px;
+    }
   }
 `;
 

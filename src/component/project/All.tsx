@@ -1,13 +1,24 @@
 import styled from "styled-components";
-import { AiFillGithub } from "react-icons/ai";
 import { Project } from "../../types/project";
+import { AiFillGithub } from "react-icons/ai";
 import portfolio from "../../images/portfolio.png";
 import soomo from "../../images/soomo.png";
 import todolist from "../../images/todolist.png";
+import { useStore } from "../../store/store";
 import { useProjectStore } from "../../store/store";
+import { useCallback } from "react";
 
-const List = ({ projectData }: { projectData: Project[] }) => {
-  const { selectedProject } = useProjectStore();
+const All = ({ projectData }: { projectData: Project[] }) => {
+  const { viewMode, setViewMode } = useStore();
+  const { selectedProject, setSelectedProject } = useProjectStore();
+
+  const handleDetailView = useCallback(
+    (project: string) => {
+      setViewMode("tab");
+      setSelectedProject(project);
+    },
+    [setViewMode, setSelectedProject]
+  );
 
   const getImageSrc = (projectId: string) => {
     switch (projectId) {
@@ -21,23 +32,20 @@ const List = ({ projectData }: { projectData: Project[] }) => {
         return ""; // 해당하는 이미지가 없는 경우 빈 문자열 반환
     }
   };
-
-  const filteredProjectData = projectData.filter(
-    (project) => project.id === selectedProject
-  );
+  console.log(selectedProject);
 
   return (
     <Wrap>
-      {filteredProjectData.length > 0 && (
-        <Content>
-          <Left>
+      {projectData.map((project) => (
+        <Content key={project.id}>
+          <div>
             <div>
               <Title>
-                <h2>{filteredProjectData[0].title}</h2>
+                <h2>{project.title}</h2>
                 <div>
                   <Link>
                     <a
-                      href={filteredProjectData[0].link}
+                      href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -45,7 +53,7 @@ const List = ({ projectData }: { projectData: Project[] }) => {
                     </a>
                   </Link>
                   <a
-                    href={filteredProjectData[0].git}
+                    href={project.git}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -57,42 +65,39 @@ const List = ({ projectData }: { projectData: Project[] }) => {
               </Title>
             </div>
             <Duration>
-              <span>{filteredProjectData[0].date}</span>
+              <span>{project.date}</span>
               <p>
                 {"("}
-                {filteredProjectData[0].term}
+                {project.term}
                 {")"}
               </p>
             </Duration>
-            <Imgbox>
-              <img
-                src={getImageSrc(filteredProjectData[0].id)}
-                alt={filteredProjectData[0].title}
-              />
-            </Imgbox>
-          </Left>
-          <Info>
-            <span>
-              <p>구현 기능</p> {filteredProjectData[0].role.join(", ")}
-            </span>
-            <span>
-              <p>기술 스택</p> {filteredProjectData[0].skill.join(", ")}
-            </span>
-          </Info>
+            <img src={getImageSrc(project.id)} alt={project.title} />
+            <Info>
+              <span>
+                <p>구현 기능</p> {project.role.join(", ")}
+              </span>
+              <span>
+                <p>기술 스택</p> {project.skill.join(", ")}
+              </span>
+            </Info>
+          </div>
+          <button onClick={() => handleDetailView(project.id)}>상세보기</button>
         </Content>
-      )}
+      ))}
     </Wrap>
   );
 };
 
-export default List;
+export default All;
 
 const Wrap = styled.div`
+  display: flex;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
 
   span,
   p {
@@ -106,23 +111,33 @@ const Wrap = styled.div`
 
   img {
     margin: 5px 0px;
-    width: 80%;
+    width: 100%;
     object-fit: contain;
   }
-`;
 
+  button {
+    border: none;
+    padding: 7px 0px;
+    border-radius: 3px;
+    background-color: #1f485e;
+    font-size: 16px;
+  }
+
+  button:hover {
+    background-color: #2f3b5d;
+  }
+`;
 const Content = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.3);
+  width: 25%;
+  min-width: 280px;
+  height: 520px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
 `;
-
-const Left = styled.div``;
-
 const Title = styled.div`
   display: flex;
   align-items: center;
@@ -158,12 +173,6 @@ const Duration = styled.div`
   }
 `;
 
-const Imgbox = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 const Info = styled.div`
   p {
     width: fit-content;

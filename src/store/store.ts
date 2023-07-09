@@ -1,6 +1,6 @@
-import create, { SetState } from 'zustand';
+import create, { SetState } from "zustand";
 
-export type ViewMode = 'scroll' | 'tab';
+export type ViewMode = "all" | "tab";
 
 interface StoreState {
   viewMode: ViewMode;
@@ -8,6 +8,18 @@ interface StoreState {
 }
 
 export const useStore = create<StoreState>((set: SetState<StoreState>) => ({
-  viewMode: 'scroll',
+  viewMode: "all",
   setViewMode: (mode) => set(() => ({ viewMode: mode })),
 }));
+
+export interface ProjectStoreState {
+  selectedProject: string;
+  setSelectedProject: (project: string) => void;
+}
+
+export const useProjectStore = create<ProjectStoreState>(
+  (set: SetState<ProjectStoreState>) => ({
+    selectedProject: "",
+    setSelectedProject: (project) => set(() => ({ selectedProject: project })),
+  })
+);

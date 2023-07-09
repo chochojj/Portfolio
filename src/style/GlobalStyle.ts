@@ -25,6 +25,8 @@ time, mark, audio, video, input,textarea {
 	box-sizing: border-box;
 	font: inherit;
 	vertical-align: baseline;	
+   
+    list-style: none;
 }
 
 
@@ -36,10 +38,6 @@ html {
 	font-family: -apple-system, "system-ui", Segoe UI, BlinkMacSystemFont
     Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
     sans-serif;
-	/* ::-webkit-scrollbar {
-        width: 0;
-        background-color: transparent;
-    } */
 }
 
 body {
@@ -49,6 +47,8 @@ body {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+
+    
   }
 `;
 

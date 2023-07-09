@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import Nav from "./component/Nav";
 import Intro from "./pages/Intro";
 import About from "./pages/About";
 import Project from "./pages/Project";
 import Contact from "./pages/Contact";
+import PinkDot from "./component/Pinkdot";
 import { SectionsContainer, Section } from "react-fullpage";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
   };
   return (
     <Wrap>
-      {/* <Nav /> */}
+      <PinkDot />
       <Main>
         <SectionsContainer {...options}>
           <Section>
@@ -43,6 +43,7 @@ export default App;
 const Wrap = styled.main`
   width: 100%;
   display: flex;
+  cursor: none;
 `;
 
 const Main = styled.article`
