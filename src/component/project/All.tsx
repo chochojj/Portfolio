@@ -74,12 +74,8 @@ const All = ({ projectData }: { projectData: Project[] }) => {
             </Duration>
             <img src={getImageSrc(project.id)} alt={project.title} />
             <Info>
-              <span>
-                <p>구현 기능</p> {project.role.join(", ")}
-              </span>
-              <span>
-                <p>기술 스택</p> {project.skill.join(", ")}
-              </span>
+              <p>구현 기능</p> {project.role.join(", ")}
+              <p>기술 스택</p> {project.skill.join(", ")}
             </Info>
           </div>
           <button onClick={() => handleDetailView(project.id)}>상세보기</button>
@@ -125,6 +121,10 @@ const Wrap = styled.div`
     border-radius: 3px;
     background-color: #1f485e;
     font-size: 16px;
+    @media screen and (max-width: 850px) {
+      padding: 4px 0px;
+      font-size: 13px;
+    }
   }
 
   button:hover {
@@ -149,8 +149,11 @@ const Content = styled.div`
     height: 300px;
   }
 
-  @media screen and (max-width: 560px) {
-    margin: 10px;
+  @media screen and (max-width: 580px) {
+    width: 80%;
+    height: fit-content;
+    margin: 5px 0px 2px 0px;
+    padding: 10px 20px;
   }
 `;
 const Title = styled.div`
@@ -164,6 +167,10 @@ const Title = styled.div`
     margin-right: 10px;
     font-weight: 600;
     color: #1f485e;
+
+    @media screen and (max-width: 580px) {
+      font-size: 20px;
+    }
   }
   div {
     display: flex;
@@ -186,14 +193,29 @@ const Duration = styled.div`
 
   span {
     margin-right: 5px;
+    @media screen and (max-width: 580px) {
+      font-size: 13px;
+    }
   }
   p {
     font-size: 14px;
     line-height: 25px;
+    @media screen and (max-width: 580px) {
+      font-size: 11px;
+    }
   }
 `;
 
 const Info = styled.div`
+  @media screen and (max-width: 1320px) {
+    font-size: 15px;
+  }
+  @media screen and (max-width: 850px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 580px) {
+    padding: 5px 0px;
+  }
   p {
     width: fit-content;
     color: white;
@@ -202,5 +224,14 @@ const Info = styled.div`
     background-color: #1f485e;
     margin-top: 10px;
     margin-bottom: 4px;
+
+    @media screen and (max-width: 850px) {
+      font-size: 16px;
+    }
+    @media screen and (max-width: 580px) {
+      margin-top: 4px;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
   }
 `;

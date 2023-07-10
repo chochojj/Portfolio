@@ -213,7 +213,12 @@ const Up = styled.section`
   @media screen and (max-width: 900px) {
     width: 100%;
     height: fit-content;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+  }
+
+  @media only screen and (max-height: 770px) {
+    height: 42%;
+    margin-bottom: 10px;
   }
 `;
 const Round = styled.article`
@@ -282,6 +287,10 @@ const Outline = styled.article`
     height: fit-content;
   }
 
+  @media only screen and (max-height: 770px) {
+    margin-top: 10px;
+  }
+
   &.fixed {
     padding-left: 100px;
 
@@ -312,6 +321,10 @@ const Title = styled.span`
     font-size: 40px;
     -webkit-text-stroke: 1px white;
   }
+
+  @media only screen and (max-height: 770px) {
+    font-size: 50px;
+  }
 `;
 
 const Line = styled.div`
@@ -323,6 +336,11 @@ const Line = styled.div`
   @media screen and (max-width: 500px) {
     height: 7px;
     border-bottom: 2px solid white;
+  }
+  @media only screen and (max-height: 770px) {
+    height: 5px;
+    border-bottom: 2px solid white;
+    margin-bottom: 5px;
   }
 `;
 
@@ -345,6 +363,10 @@ const Text = styled.span`
 
   @media screen and (max-width: 400px) {
     font-size: 12px;
+  }
+
+  @media only screen and (max-height: 770px) {
+    font-size: 15px;
   }
 `;
 

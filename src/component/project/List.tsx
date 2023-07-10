@@ -137,7 +137,7 @@ const Content = styled.div`
 
 const Down = styled.div`
   width: 100%;
-  height: 70%;
+  height: 80%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -145,7 +145,7 @@ const Down = styled.div`
   p {
     width: fit-content;
     color: white;
-    font-size: 18px;
+    font-size: 20px;
     padding: 0px 4px;
     background-color: #1f485e;
     margin-top: 10px;

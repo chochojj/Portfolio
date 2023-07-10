@@ -66,6 +66,20 @@ const Top = styled.section`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+
+  @media screen and (max-width: 1320px) {
+    height: 150px;
+  }
+
+  @media screen and (max-width: 850px) {
+    height: 100px;
+  }
+  @media screen and (max-height: 770px) {
+    height: 100px;
+  }
+  @media screen and (max-width: 410px) {
+    height: 70px;
+  }
 `;
 const Title = styled.div`
   width: 380px;
@@ -73,6 +87,21 @@ const Title = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+
+  @media screen and (max-width: 1320px) {
+    width: 320px;
+  }
+
+  @media screen and (max-width: 850px) {
+    width: 240px;
+  }
+
+  @media screen and (max-width: 410px) {
+    width: 180px;
+  }
+  @media screen and (max-width: 410px) {
+    width: 150px;
+  }
 `;
 const Text = styled.span`
   font-size: 80px;
@@ -84,7 +113,20 @@ const Text = styled.span`
   padding-right: 30px;
   letter-spacing: 3px;
   @media screen and (max-width: 1320px) {
-    font-size: 70px;
+    font-size: 50px;
+    margin-top: 20px;
+  }
+  @media screen and (max-width: 850px) {
+    -webkit-text-stroke: 1px white;
+    margin-top: 10px;
+    font-size: 40px;
+    padding-right: 15px;
+  }
+
+  @media screen and (max-width: 410px) {
+    font-size: 25px;
+    color: white;
+    font-weight: normal;
   }
 `;
 
@@ -94,6 +136,16 @@ const Line = styled.div`
   margin-top: 15px;
   margin-bottom: 25px;
   border-bottom: 3px solid white;
+
+  @media screen and (max-width: 850px) {
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+
+  @media only screen and (max-height: 770px) {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
 `;
 
 const VeiwButton = styled.div`
@@ -104,11 +156,40 @@ const VeiwButton = styled.div`
   margin-right: 100px;
   margin-bottom: 25px;
 
+  @media screen and (max-width: 1320px) {
+    margin-right: 50px;
+    margin-bottom: 25px;
+  }
+
+  @media screen and (max-width: 850px) {
+    margin-right: 40px;
+    margin-bottom: 20px;
+  }
+
+  @media screen and (max-width: 500px) {
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+
   button {
     background-color: transparent;
     height: 30px;
     font-size: 20px;
     cursor: pointer;
+
+    @media screen and (max-width: 1320px) {
+      height: 25px;
+      font-size: 18px;
+    }
+
+    @media screen and (max-width: 850px) {
+      height: 25px;
+      font-size: 16px;
+    }
+    @media screen and (max-width: 500px) {
+      height: fit-content;
+      font-size: 14px;
+    }
   }
 `;
 
@@ -117,6 +198,9 @@ const ScrollView = styled.button<{ active: boolean }>`
   border: none;
   color: ${({ active }) => (active ? "#FFDDAB" : "white")};
   font-weight: ${({ active }) => (active ? "bold" : "normal")};
+  @media screen and (max-width: 500px) {
+    padding-right: 8px;
+  }
 `;
 const TabView = styled.button<{ active: boolean }>`
   padding-left: 12px;
@@ -124,6 +208,10 @@ const TabView = styled.button<{ active: boolean }>`
   border-left: 3px solid white;
   color: ${({ active }) => (active ? "#FFDDAB" : "white")};
   font-weight: ${({ active }) => (active ? "bold" : "normal")};
+
+  @media screen and (max-width: 500px) {
+    padding-left: 8px;
+  }
 `;
 
 const View = styled.article`
@@ -134,4 +222,19 @@ const View = styled.article`
   justify-content: center;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.3);
+
+  @media screen and (max-width: 1320px) {
+    height: calc(100% - 150px);
+  }
+
+  @media screen and (max-width: 850px) {
+    height: calc(100% - 100px);
+  }
+
+  @media screen and (max-height: 770px) {
+    height: calc(100% - 100px);
+  }
+  @media screen and (max-width: 410px) {
+    height: calc(100% - 70px);
+  }
 `;
