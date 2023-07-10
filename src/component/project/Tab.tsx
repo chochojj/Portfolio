@@ -32,6 +32,15 @@ const Wrap = styled.div`
   position: absolute;
   width: 40px;
   left: 37px;
+  @media screen and (max-width: 980px) {
+    top: 40px;
+  }
+
+  @media screen and (max-width: 530px) {
+    width: 35px;
+    left: 32px;
+    top: 30px;
+  }
 
   div {
     width: 100%;
@@ -40,6 +49,10 @@ const Wrap = styled.div`
     background-color: white;
     border: 2px solid #1f485e;
     border-radius: 3px;
+
+    @media screen and (max-width: 530px) {
+      height: 12px;
+    }
   }
 
   .active {

@@ -121,6 +121,7 @@ const Wrap = styled.div`
     border-radius: 3px;
     background-color: #1f485e;
     font-size: 16px;
+
     @media screen and (max-width: 850px) {
       padding: 4px 0px;
       font-size: 13px;

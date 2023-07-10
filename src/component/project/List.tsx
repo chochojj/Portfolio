@@ -104,6 +104,11 @@ const Wrap = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.3);
+
+  @media screen and (max-width: 1320px) {
+    padding: 15px;
+  }
+
   span,
   p {
     color: black;
@@ -121,6 +126,19 @@ const Wrap = styled.div`
     min-width: 450px;
     object-fit: contain;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+
+    @media screen and (max-width: 1210px) {
+      min-width: 400px;
+    }
+
+    @media screen and (max-width: 850px) {
+      margin-bottom: 20px;
+    }
+
+    @media screen and (max-width: 530px) {
+      min-width: 350px;
+      margin-bottom: 20px;
+    }
   }
 `;
 
@@ -133,6 +151,16 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+
+  @media screen and (max-width: 1210px) {
+    justify-content: space-between;
+    padding: 10px 0px;
+    position: relative;
+  }
+
+  @media screen and (max-width: 530px) {
+    justify-content: center;
+  }
 `;
 
 const Down = styled.div`
@@ -142,6 +170,12 @@ const Down = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 1210px) {
+    flex-direction: column;
+    height: fit-content;
+  }
+
   p {
     width: fit-content;
     color: white;
@@ -150,11 +184,30 @@ const Down = styled.div`
     background-color: #1f485e;
     margin-top: 10px;
     margin-bottom: 4px;
+    @media screen and (max-width: 850px) {
+      font-size: 18px;
+    }
+
+    @media screen and (max-width: 530px) {
+      font-size: 15px;
+    }
   }
 `;
 const Left = styled.div`
   width: 35%;
   margin: 0 20px;
+
+  @media screen and (max-width: 1320px) {
+    width: 38%;
+    margin: 0 20px;
+  }
+  @media screen and (max-width: 1210px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const Title = styled.div`
@@ -166,16 +219,28 @@ const Title = styled.div`
   justify-content: center;
   flex-wrap: wrap;
 
+  @media screen and (max-width: 1210px) {
+    height: fit-content;
+  }
+
   h2 {
     font-size: 26px;
     margin-right: 10px;
     font-weight: 600;
     color: #1f485e;
+    @media screen and (max-width: 1210px) {
+      font-size: 18px;
+      line-height: 20px;
+    }
   }
   div {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media screen and (max-width: 1320px) {
+      height: fit-content;
+    }
   }
 `;
 const Link = styled.span`
@@ -184,6 +249,10 @@ const Link = styled.span`
   padding: 0px 3px;
   background-color: #e4a8a8;
   font-weight: 600;
+
+  @media screen and (max-width: 530px) {
+    font-size: 15px;
+  }
 `;
 
 const Duration = styled.div`
@@ -198,6 +267,11 @@ const Duration = styled.div`
   p {
     font-size: 14px;
     line-height: 25px;
+
+    @media screen and (max-width: 530px) {
+      font-size: 12px;
+      line-height: 20px;
+    }
   }
 `;
 
@@ -206,15 +280,68 @@ const Imgbox = styled.div`
   /* justify-content: center; */
   align-items: center;
   margin-bottom: 30px;
+
+  @media screen and (max-width: 1210px) {
+    justify-content: center;
+    margin-bottom: 0px;
+  }
 `;
 
-const Stack = styled.div``;
+const Stack = styled.div`
+  width: 430px;
+  @media screen and (max-width: 1210px) {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 850px) {
+    padding: 0px 5px;
+  }
+
+  span {
+    width: 400px;
+
+    @media screen and (max-width: 1210px) {
+      margin-bottom: 5px;
+      font-size: 14px;
+      line-height: 20px;
+    }
+    @media screen and (max-width: 530px) {
+      font-size: 12px;
+    }
+  }
+`;
 const Info = styled.section`
   width: 40%;
   display: flex;
   flex-direction: column;
 
+  @media screen and (max-width: 1320px) {
+    width: 550px;
+  }
+
+  @media screen and (max-width: 1210px) {
+    width: 800px;
+    margin-bottom: 20px;
+  }
+
+  @media screen and (max-width: 850px) {
+    width: 100%;
+    padding: 0px 5px;
+  }
+
   span {
     margin-bottom: 10px;
+
+    @media screen and (max-width: 1210px) {
+      margin-bottom: 5px;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    @media screen and (max-width: 530px) {
+      font-size: 12px;
+    }
   }
 `;
