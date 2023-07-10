@@ -74,7 +74,7 @@ const List = ({ projectData }: { projectData: Project[] }) => {
                   <p>구현 기능</p> {filteredProjectData[0].role.join(", ")}
                 </span>
                 <span>
-                  <p>기술 스택</p> {filteredProjectData[0].skill.join(", ")}
+                  <p>사용 기술</p> {filteredProjectData[0].skill.join(", ")}
                 </span>
               </Stack>
             </Left>
@@ -206,5 +206,11 @@ const Imgbox = styled.div`
 
 const Stack = styled.div``;
 const Info = styled.section`
-  width: 40%;
+  width: 36%;
+  display: flex;
+  flex-direction: column;
+
+  span {
+    margin-bottom: 10px;
+  }
 `;
