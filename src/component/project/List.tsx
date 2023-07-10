@@ -136,6 +136,8 @@ const Content = styled.div`
 `;
 
 const Down = styled.div`
+  width: 100%;
+  height: 70%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -151,11 +153,13 @@ const Down = styled.div`
   }
 `;
 const Left = styled.div`
-  width: 30%;
+  width: 35%;
   margin: 0 20px;
 `;
 
 const Title = styled.div`
+  width: 100%;
+  height: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -163,7 +167,7 @@ const Title = styled.div`
   flex-wrap: wrap;
 
   h2 {
-    font-size: 25px;
+    font-size: 26px;
     margin-right: 10px;
     font-weight: 600;
     color: #1f485e;
@@ -199,14 +203,14 @@ const Duration = styled.div`
 
 const Imgbox = styled.div`
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 `;
 
 const Stack = styled.div``;
 const Info = styled.section`
-  width: 36%;
+  width: 40%;
   display: flex;
   flex-direction: column;
 

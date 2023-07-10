@@ -29,7 +29,7 @@ const All = ({ projectData }: { projectData: Project[] }) => {
       case "todolist":
         return todolist;
       default:
-        return ""; // 해당하는 이미지가 없는 경우 빈 문자열 반환
+        return "";
     }
   };
   console.log(selectedProject);
