@@ -139,6 +139,11 @@ const Wrap = styled.div`
       min-width: 350px;
       margin-bottom: 20px;
     }
+
+    @media only screen and (max-height: 770px) {
+      min-width: 220px;
+      margin: 0px;
+    }
   }
 `;
 
@@ -191,6 +196,9 @@ const Down = styled.div`
     @media screen and (max-width: 530px) {
       font-size: 15px;
     }
+    @media only screen and (max-height: 770px) {
+      font-size: 12px;
+    }
   }
 `;
 const Left = styled.div`
@@ -242,6 +250,9 @@ const Title = styled.div`
       height: fit-content;
     }
   }
+  @media only screen and (max-height: 770px) {
+    flex-direction: row;
+  }
 `;
 const Link = styled.span`
   font-size: 19px;
@@ -263,6 +274,12 @@ const Duration = styled.div`
 
   span {
     margin-right: 5px;
+
+    @media only screen and (max-height: 770px) {
+      font-size: 13px;
+      margin-left: 5px;
+      color: rgba(0, 0, 0, 0.5);
+    }
   }
   p {
     font-size: 14px;
@@ -310,6 +327,10 @@ const Stack = styled.div`
     @media screen and (max-width: 530px) {
       font-size: 12px;
     }
+
+    @media only screen and (max-height: 770px) {
+      margin-bottom: 0px;
+    }
   }
 `;
 const Info = styled.section`
@@ -331,6 +352,10 @@ const Info = styled.section`
     padding: 0px 5px;
   }
 
+  @media only screen and (max-height: 770px) {
+    margin-bottom: 10px;
+  }
+
   span {
     margin-bottom: 10px;
 
@@ -342,6 +367,10 @@ const Info = styled.section`
 
     @media screen and (max-width: 530px) {
       font-size: 12px;
+    }
+
+    @media only screen and (max-height: 770px) {
+      margin-bottom: 0px;
     }
   }
 `;

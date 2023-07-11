@@ -19,7 +19,7 @@ export interface ProjectStoreState {
 
 export const useProjectStore = create<ProjectStoreState>(
   (set: SetState<ProjectStoreState>) => ({
-    selectedProject: "",
+    selectedProject: "portfolio",
     setSelectedProject: (project) => set(() => ({ selectedProject: project })),
   })
 );

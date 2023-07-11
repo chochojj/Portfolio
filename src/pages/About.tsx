@@ -325,6 +325,10 @@ const Title = styled.span`
   @media only screen and (max-height: 770px) {
     font-size: 50px;
   }
+
+  @media only screen and (max-height: 770px) and (max-width: 500px) {
+    font-size: 35px;
+  }
 `;
 
 const Line = styled.div`
@@ -368,6 +372,10 @@ const Text = styled.span`
   @media only screen and (max-height: 770px) {
     font-size: 15px;
   }
+
+  @media only screen and (max-height: 770px) and (max-width: 500px) {
+    font-size: 13px;
+  }
 `;
 
 const Info = styled.section`
@@ -392,6 +400,10 @@ const Info = styled.section`
 
   @media screen and (max-width: 500px) {
     margin-bottom: 50px;
+  }
+  @media only screen and (max-height: 770px) and (max-width: 500px) {
+    padding: 5px;
+    margin-bottom: 40px;
   }
 `;
 

@@ -80,6 +80,10 @@ const Top = styled.section`
   @media screen and (max-width: 410px) {
     height: 70px;
   }
+
+  @media only screen and (max-height: 770px) and (max-width: 500px) {
+    height: 70px;
+  }
 `;
 const Title = styled.div`
   width: 380px;
@@ -101,6 +105,9 @@ const Title = styled.div`
   }
   @media screen and (max-width: 410px) {
     width: 150px;
+  }
+  @media only screen and (max-height: 770px) and (max-width: 500px) {
+    width: 180px;
   }
 `;
 const Text = styled.span`
@@ -128,6 +135,9 @@ const Text = styled.span`
     color: white;
     font-weight: normal;
   }
+  @media only screen and (max-height: 770px) and (max-width: 500px) {
+    font-size: 30px;
+  }
 `;
 
 const Line = styled.div`
@@ -145,6 +155,9 @@ const Line = styled.div`
   @media only screen and (max-height: 770px) {
     margin-top: 5px;
     margin-bottom: 10px;
+  }
+  @media only screen and (max-height: 770px) and (max-width: 500px) {
+    margin-top: 0px;
   }
 `;
 
@@ -235,6 +248,10 @@ const View = styled.article`
     height: calc(100% - 100px);
   }
   @media screen and (max-width: 410px) {
+    height: calc(100% - 70px);
+  }
+
+  @media only screen and (max-height: 770px) and (max-width: 500px) {
     height: calc(100% - 70px);
   }
 `;
