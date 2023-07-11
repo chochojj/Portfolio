@@ -1,12 +1,19 @@
 import styled, { keyframes } from "styled-components";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
 
 interface BubbleProps {
   randomNumber: number;
 }
 
 const Contact = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting, errors },
+  } = useForm();
   const bubbleRef = useRef<HTMLSpanElement | null>(null);
+  const [isEmailSent, setIsEmailSent] = useState<boolean>(false);
 
   useEffect(() => {
     const options: IntersectionObserverInit = {
@@ -55,7 +62,56 @@ const Contact = () => {
         <Line />
       </Title>
       <Content>
-        <Info></Info>
+        <MailBox>
+          <MailTo>
+            <span>궁금한 부분이 있으시다면</span>
+            <span>편하게 메일 주세요</span>
+          </MailTo>
+          {isEmailSent && (
+            <SentMailMessage>메일이 보내졌습니다!</SentMailMessage>
+          )}
+          <Form
+            onSubmit={handleSubmit(async (data) => {
+              await new Promise((r) => setTimeout(r, 1000));
+              setIsEmailSent(true);
+            })}
+            method="POST"
+            action="https://script.google.com/macros/s/AKfycbzQ1y0pt19m8Qult61EYPk31MsC6X2gX1u_dWjg1weLdo8vBMlN2Xz20wou7beK-6Yk1w/exec"
+            target="none"
+          >
+            <label htmlFor="email">이메일</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="이메일을 입력해 주세요"
+              {...register("email", {
+                required: "이메일은 필수 입력입니다.",
+                pattern: {
+                  value: /\S+@\S+\.\S+/,
+                  message: "이메일 형식에 맞지 않습니다.",
+                },
+              })}
+            />
+            {errors.email && (
+              <small role="alert">이메일을 다시 확인해 주세요</small>
+            )}
+            <label htmlFor="content">내용</label>
+            <textarea
+              id="content"
+              placeholder="내용을 입력해 주세요"
+              {...register("content", {
+                required: "내용을 채워주세요😥",
+              })}
+            />
+            {errors.content && (
+              <small role="alert">내용을 다시 확인해 주세요</small>
+            )}
+            <button type="submit" disabled={isSubmitting}>
+              메일 보내기
+            </button>
+          </Form>
+          <iframe name="none" style={{ display: "none" }}></iframe>
+        </MailBox>
       </Content>
     </Wrap>
   );
@@ -183,10 +239,35 @@ const Content = styled.section`
   position: relative;
 `;
 
-const Info = styled.section`
+const MailBox = styled.section`
   width: 700px;
   height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
   border-radius: 10px;
   background-color: white;
   box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+  color: #1f485e;
+`;
+
+const SentMailMessage = styled.span`
+  color: red;
+`;
+const MailTo = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  span {
+    color: #1f485e;
+    margin-bottom: 3px;
+  }
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
 `;
