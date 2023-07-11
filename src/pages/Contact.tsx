@@ -9,7 +9,6 @@ interface BubbleProps {
 const Contact = () => {
   const {
     register,
-    handleSubmit,
     formState: { isSubmitting, errors },
   } = useForm();
   const bubbleRef = useRef<HTMLSpanElement | null>(null);
@@ -72,10 +71,6 @@ const Contact = () => {
           </MailTo>
 
           <Form
-            onSubmit={handleSubmit(async (data) => {
-              await new Promise((r) => setTimeout(r, 1000));
-              setIsEmailSent(true);
-            })}
             method="POST"
             action="https://script.google.com/macros/s/AKfycbywqwt41TZysEW33MmuvlbkvJHT875ct8BKSwJbaQwz_nvum4SYVS1dz2Wb-p0Y0taGZw/exec"
             target="none"
@@ -266,7 +261,7 @@ const MailBox = styled.section`
   height: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   border-radius: 10px;
   background-color: white;
