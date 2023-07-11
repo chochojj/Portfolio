@@ -77,7 +77,7 @@ const Contact = () => {
               setIsEmailSent(true);
             })}
             method="POST"
-            action="https://script.google.com/macros/s/AKfycbzQ1y0pt19m8Qult61EYPk31MsC6X2gX1u_dWjg1weLdo8vBMlN2Xz20wou7beK-6Yk1w/exec"
+            action="https://script.google.com/macros/s/AKfycbywqwt41TZysEW33MmuvlbkvJHT875ct8BKSwJbaQwz_nvum4SYVS1dz2Wb-p0Y0taGZw/exec"
             target="none"
           >
             <label htmlFor="email">이메일</label>
