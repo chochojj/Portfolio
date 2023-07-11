@@ -64,12 +64,13 @@ const Contact = () => {
       <Content>
         <MailBox>
           <MailTo>
+            {isEmailSent && (
+              <SentMailMessage>메일이 보내졌습니다!</SentMailMessage>
+            )}
             <span>궁금한 부분이 있으시다면</span>
             <span>편하게 메일 주세요</span>
           </MailTo>
-          {isEmailSent && (
-            <SentMailMessage>메일이 보내졌습니다!</SentMailMessage>
-          )}
+
           <Form
             onSubmit={handleSubmit(async (data) => {
               await new Promise((r) => setTimeout(r, 1000));
@@ -182,6 +183,13 @@ const Title = styled.div`
   @media screen and (max-width: 410px) {
     width: 150px;
   }
+
+  @media only screen and (max-height: 770px) {
+    width: 300px;
+  }
+  @media only screen and (max-height: 770px) and (max-width: 500px) {
+    width: 200px;
+  }
 `;
 
 const Text = styled.span`
@@ -210,6 +218,15 @@ const Text = styled.span`
     color: white;
     font-weight: normal;
   }
+
+  @media only screen and (max-height: 770px) {
+    font-size: 50px;
+    margin-top: 10px;
+  }
+  @media only screen and (max-height: 770px) and (max-width: 500px) {
+    font-size: 30px;
+    margin-top: 10px;
+  }
 `;
 
 const Line = styled.div`
@@ -228,6 +245,11 @@ const Line = styled.div`
     margin-top: 5px;
     margin-bottom: 10px;
   }
+  @media only screen and (max-height: 770px) and (max-width: 500px) {
+    border-bottom: 2px solid white;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
 `;
 
 const Content = styled.section`
@@ -244,16 +266,23 @@ const MailBox = styled.section`
   height: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   border-radius: 10px;
   background-color: white;
   box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
   color: #1f485e;
+
+  @media screen and (max-width: 720px) {
+    margin: 0 10px;
+  }
 `;
 
 const SentMailMessage = styled.span`
-  color: red;
+  background-color: #e4a8a8;
+  padding: 2px 3px;
+  margin-bottom: 10px;
+  font-size: 15px;
 `;
 const MailTo = styled.section`
   display: flex;
@@ -270,4 +299,26 @@ const MailTo = styled.section`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
+  width: 80%;
+
+  label {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #292929;
+    font-weight: 600;
+  }
+
+  textarea {
+    resize: none;
+    height: 180px;
+  }
+
+  button {
+    border: none;
+    padding: 7px 0px;
+    border-radius: 3px;
+    background-color: #1f485e;
+    font-size: 16px;
+    margin-top: 20px;
+  }
 `;
