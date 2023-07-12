@@ -139,9 +139,16 @@ const Wrap = styled.div`
       min-width: 350px;
       margin-bottom: 20px;
     }
+    @media only screen and(max-height: 700px) {
+      width: 280px;
+    }
 
-    @media only screen and (max-height: 770px) {
-      min-width: 220px;
+    @media only screen and(max-height: 770px) {
+      min-width: 400px;
+    }
+
+    @media only screen and (max-width: 530px) and(max-height: 770px) {
+      width: 250px;
       margin: 0px;
     }
   }

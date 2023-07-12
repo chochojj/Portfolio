@@ -81,7 +81,7 @@ const Contact = () => {
               type="email"
               placeholder="이메일을 입력해 주세요"
               {...register("email", {
-                required: "이메일은 필수 입력입니다.",
+                required: true,
                 pattern: {
                   value: /\S+@\S+\.\S+/,
                   message: "이메일 형식에 맞지 않습니다.",
@@ -96,7 +96,7 @@ const Contact = () => {
               id="content"
               placeholder="내용을 입력해 주세요"
               {...register("content", {
-                required: "내용을 채워주세요😥",
+                required: true,
               })}
             />
             {errors.content && (
@@ -303,9 +303,22 @@ const Form = styled.form`
     font-weight: 600;
   }
 
+  input {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: #1f485e44;
+  }
+
   textarea {
+    border-radius: 5px;
+    padding: 5px 10px;
+    outline: none;
     resize: none;
+    border: none;
     height: 180px;
+    background-color: #1f485e44;
   }
 
   button {
@@ -315,5 +328,9 @@ const Form = styled.form`
     background-color: #1f485e;
     font-size: 16px;
     margin-top: 20px;
+  }
+  button:hover {
+    background-color: #2f3b5d;
+    cursor: pointer;
   }
 `;
