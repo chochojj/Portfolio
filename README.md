@@ -12,4 +12,4 @@
 
 | 애니메이션 |  프로젝트 조회 | 반응형 화면 |
 |:-:|:-:| :-: |
-||||
+|![애니메이션](https://github.com/chochojj/Portfolio/assets/104323906/463138f8-e20a-4719-a986-29209f681c03)|![프로젝트-조회](https://github.com/chochojj/Portfolio/assets/104323906/5a268162-d8a1-482a-b524-c5f841fa309a)|![반응형](https://github.com/chochojj/Portfolio/assets/104323906/754b895d-fdec-45aa-b1e5-0816a42b1658) |
