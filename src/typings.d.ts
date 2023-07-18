@@ -1,5 +1,7 @@
 declare module "react-fullpage";
 
+declare module "react-hook-form";
+
 declare module "*.svg" {
   const content: any;
   export default content;

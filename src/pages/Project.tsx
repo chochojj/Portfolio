@@ -81,6 +81,10 @@ const Top = styled.section`
     height: 70px;
   }
 
+  @media only screen and (max-height: 770px) {
+    height: 80px;
+  }
+
   @media only screen and (max-height: 770px) and (max-width: 500px) {
     height: 70px;
   }
@@ -108,6 +112,10 @@ const Title = styled.div`
   }
   @media only screen and (max-height: 770px) and (max-width: 500px) {
     width: 180px;
+  }
+
+  @media only screen and (max-height: 770px) {
+    width: 200px;
   }
 `;
 const Text = styled.span`
@@ -137,6 +145,12 @@ const Text = styled.span`
   }
   @media only screen and (max-height: 770px) and (max-width: 500px) {
     font-size: 30px;
+  }
+
+  @media only screen and (max-height: 770px) {
+    font-size: 37px;
+    -webkit-text-stroke: 1px white;
+    padding-right: 12px;
   }
 `;
 
@@ -252,6 +266,9 @@ const View = styled.article`
   }
 
   @media only screen and (max-height: 770px) and (max-width: 500px) {
+    height: calc(100% - 70px);
+  }
+  @media only screen and (max-height: 770px) {
     height: calc(100% - 70px);
   }
 `;

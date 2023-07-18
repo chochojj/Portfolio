@@ -303,9 +303,22 @@ const Form = styled.form`
     font-weight: 600;
   }
 
+  input {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: #1f485e44;
+  }
+
   textarea {
+    border-radius: 5px;
+    padding: 5px 10px;
+    outline: none;
     resize: none;
+    border: none;
     height: 180px;
+    background-color: #1f485e44;
   }
 
   button {
@@ -315,5 +328,9 @@ const Form = styled.form`
     background-color: #1f485e;
     font-size: 16px;
     margin-top: 20px;
+  }
+  button:hover {
+    background-color: #2f3b5d;
+    cursor: pointer;
   }
 `;
