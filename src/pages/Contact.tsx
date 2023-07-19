@@ -9,6 +9,7 @@ interface BubbleProps {
 const Contact = () => {
   const {
     register,
+    handleSubmit,
     formState: { isSubmitting, errors },
   } = useForm();
   const bubbleRef = useRef<HTMLSpanElement | null>(null);
@@ -307,13 +308,13 @@ const Form = styled.form`
     border: none;
     outline: none;
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 5px 8px;
     background-color: #1f485e44;
   }
 
   textarea {
     border-radius: 5px;
-    padding: 8px 10px;
+    padding: 8px 8px;
     outline: none;
     resize: none;
     border: none;
