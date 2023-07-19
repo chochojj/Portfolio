@@ -9,7 +9,6 @@ interface BubbleProps {
 const Contact = () => {
   const {
     register,
-    handleSubmit,
     formState: { isSubmitting, errors },
   } = useForm();
   const bubbleRef = useRef<HTMLSpanElement | null>(null);
@@ -70,13 +69,10 @@ const Contact = () => {
             <span>궁금한 부분이 있으시다면</span>
             <span>편하게 메일 주세요</span>
           </MailTo>
+
           <Form
-            onSubmit={handleSubmit(async (data) => {
-              await new Promise((r) => setTimeout(r, 1000));
-              setIsEmailSent(true);
-            })}
             method="POST"
-            action="https://script.google.com/macros/s/AKfycbzQ1y0pt19m8Qult61EYPk31MsC6X2gX1u_dWjg1weLdo8vBMlN2Xz20wou7beK-6Yk1w/exec"
+            action="https://script.google.com/macros/s/AKfycbywqwt41TZysEW33MmuvlbkvJHT875ct8BKSwJbaQwz_nvum4SYVS1dz2Wb-p0Y0taGZw/exec"
             target="none"
           >
             <label htmlFor="email">이메일</label>
@@ -85,7 +81,7 @@ const Contact = () => {
               type="email"
               placeholder="이메일을 입력해 주세요"
               {...register("email", {
-                required: "이메일은 필수 입력입니다.",
+                required: true,
                 pattern: {
                   value: /\S+@\S+\.\S+/,
                   message: "이메일 형식에 맞지 않습니다.",
@@ -100,7 +96,7 @@ const Contact = () => {
               id="content"
               placeholder="내용을 입력해 주세요"
               {...register("content", {
-                required: "내용은 필수 입력입니다.",
+                required: true,
               })}
             />
             {errors.content && (
@@ -182,6 +178,13 @@ const Title = styled.div`
   @media screen and (max-width: 410px) {
     width: 150px;
   }
+
+  @media only screen and (max-height: 770px) {
+    width: 300px;
+  }
+  @media only screen and (max-height: 770px) and (max-width: 500px) {
+    width: 200px;
+  }
 `;
 
 const Text = styled.span`
@@ -210,6 +213,15 @@ const Text = styled.span`
     color: white;
     font-weight: normal;
   }
+
+  @media only screen and (max-height: 770px) {
+    font-size: 50px;
+    margin-top: 10px;
+  }
+  @media only screen and (max-height: 770px) and (max-width: 500px) {
+    font-size: 30px;
+    margin-top: 10px;
+  }
 `;
 
 const Line = styled.div`
@@ -228,6 +240,11 @@ const Line = styled.div`
     margin-top: 5px;
     margin-bottom: 10px;
   }
+  @media only screen and (max-height: 770px) and (max-width: 500px) {
+    border-bottom: 2px solid white;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
 `;
 
 const Content = styled.section`
@@ -240,7 +257,6 @@ const Content = styled.section`
 `;
 
 const MailBox = styled.section`
-  padding: 20px;
   width: 700px;
   height: 500px;
   display: flex;
@@ -251,6 +267,10 @@ const MailBox = styled.section`
   background-color: white;
   box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
   color: #1f485e;
+
+  @media screen and (max-width: 720px) {
+    margin: 0 10px;
+  }
 `;
 
 const SentMailMessage = styled.span`
@@ -283,9 +303,22 @@ const Form = styled.form`
     font-weight: 600;
   }
 
+  input {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: #1f485e44;
+  }
+
   textarea {
+    border-radius: 5px;
+    padding: 8px 10px;
+    outline: none;
     resize: none;
+    border: none;
     height: 180px;
+    background-color: #1f485e44;
   }
 
   button {
@@ -295,5 +328,9 @@ const Form = styled.form`
     background-color: #1f485e;
     font-size: 16px;
     margin-top: 20px;
+  }
+  button:hover {
+    background-color: #2f3b5d;
+    cursor: pointer;
   }
 `;
