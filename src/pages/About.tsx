@@ -518,16 +518,3 @@ const Stack = styled.div`
     margin-bottom: 5px;
   }
 `;
-
-// @media screen and (max-width: 980px) {
-//   width: 7%;
-// }
-
-// @media screen and (max-width: 700px) {
-//   display: none;
-// }
-
-// @media screen and (max-width: 480px) {
-//   font-size: 60px;
-//   -webkit-text-stroke: 2px white;
-// }

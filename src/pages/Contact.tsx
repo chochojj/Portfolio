@@ -313,7 +313,7 @@ const Form = styled.form`
 
   textarea {
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 8px 10px;
     outline: none;
     resize: none;
     border: none;
