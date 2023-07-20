@@ -43,6 +43,7 @@ const Contact = () => {
       })
       .then((data) => {
         // 성공
+        setIsEmailSent(true);
         console.log("Success:", data);
       })
       .catch((error) => {
