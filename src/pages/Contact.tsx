@@ -10,10 +10,27 @@ const Contact = () => {
   const {
     register,
     handleSubmit,
-    formState: { isSubmitting, errors },
+    formState: { isSubmitting, errors, isDirty, isValid },
   } = useForm();
   const bubbleRef = useRef<HTMLSpanElement | null>(null);
   const [isEmailSent, setIsEmailSent] = useState<boolean>(false);
+
+  const onSubmit = (data) => {
+    console.log(data);
+    fetch(
+      `https://script.google.com/macros/s/AKfycbywqwt41TZysEW33MmuvlbkvJHT875ct8BKSwJbaQwz_nvum4SYVS1dz2Wb-p0Y0taGZw/exec`,
+      {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          email: data.email,
+          content: data.content,
+        }),
+      }
+    )
+      .then((res) => res.json())
+      .then(() => {});
+  };
 
   useEffect(() => {
     const options: IntersectionObserverInit = {
@@ -71,11 +88,7 @@ const Contact = () => {
             <span>편하게 메일 주세요</span>
           </MailTo>
 
-          <Form
-            method="POST"
-            action="https://script.google.com/macros/s/AKfycbywqwt41TZysEW33MmuvlbkvJHT875ct8BKSwJbaQwz_nvum4SYVS1dz2Wb-p0Y0taGZw/exec"
-            target="none"
-          >
+          <Form onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor="email">이메일</label>
             <input
               id="email"
@@ -83,10 +96,7 @@ const Contact = () => {
               placeholder="이메일을 입력해 주세요"
               {...register("email", {
                 required: true,
-                pattern: {
-                  value: /\S+@\S+\.\S+/,
-                  message: "이메일 형식에 맞지 않습니다.",
-                },
+                pattern: /\S+@\S+\.\S+/,
               })}
             />
             {errors.email && (
@@ -107,7 +117,7 @@ const Contact = () => {
               메일 보내기
             </button>
           </Form>
-          <iframe name="none" style={{ display: "none" }}></iframe>
+          <iframe name="none" style={{ display: "none" }} />
         </MailBox>
       </Content>
     </Wrap>
