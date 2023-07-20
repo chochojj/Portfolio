@@ -6,6 +6,11 @@ interface BubbleProps {
   randomNumber: number;
 }
 
+interface FormData {
+  email: string;
+  content: string;
+}
+
 const Contact = () => {
   const {
     register,
@@ -15,21 +20,35 @@ const Contact = () => {
   const bubbleRef = useRef<HTMLSpanElement | null>(null);
   const [isEmailSent, setIsEmailSent] = useState<boolean>(false);
 
-  const onSubmit = (data) => {
-    console.log(data);
-    fetch(
-      `https://script.google.com/macros/s/AKfycbywqwt41TZysEW33MmuvlbkvJHT875ct8BKSwJbaQwz_nvum4SYVS1dz2Wb-p0Y0taGZw/exec`,
-      {
-        method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify({
-          email: data.email,
-          content: data.content,
-        }),
-      }
-    )
-      .then((res) => res.json())
-      .then(() => {});
+  const onSubmit = (data: FormData) => {
+    const googleUrl =
+      "https://script.google.com/macros/s/AKfycbywqwt41TZysEW33MmuvlbkvJHT875ct8BKSwJbaQwz_nvum4SYVS1dz2Wb-p0Y0taGZw/exec";
+
+    // fetch 설정
+    fetch(googleUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: data.email,
+        content: data.content,
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // 성공
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        //실패
+        console.error("Error:", error);
+      });
   };
 
   useEffect(() => {
