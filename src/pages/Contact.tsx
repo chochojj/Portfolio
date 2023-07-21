@@ -6,13 +6,52 @@ interface BubbleProps {
   randomNumber: number;
 }
 
+interface FormData {
+  email: string;
+  content: string;
+}
+
 const Contact = () => {
   const {
     register,
+    handleSubmit,
     formState: { isSubmitting, errors },
   } = useForm();
   const bubbleRef = useRef<HTMLSpanElement | null>(null);
   const [isEmailSent, setIsEmailSent] = useState<boolean>(false);
+
+  const onSubmit = (data: FormData) => {
+    const googleUrl =
+      "https://script.google.com/macros/s/AKfycbxlILDI5IinA6hXjLm8BF_XffZVFpszVURKn78YYC6joYaBxgHdC1trMt41q6b6NMxwDQ/exec";
+
+    // fetch 설정
+    fetch(googleUrl, {
+      redirect: "follow",
+      method: "POST",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8",
+      },
+      body: JSON.stringify({
+        email: data.email,
+        content: data.content,
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // 성공
+        setIsEmailSent(true);
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        //실패
+        console.error("Error:", error);
+      });
+  };
 
   useEffect(() => {
     const options: IntersectionObserverInit = {
@@ -70,11 +109,7 @@ const Contact = () => {
             <span>편하게 메일 주세요</span>
           </MailTo>
 
-          <Form
-            method="POST"
-            action="https://script.google.com/macros/s/AKfycbywqwt41TZysEW33MmuvlbkvJHT875ct8BKSwJbaQwz_nvum4SYVS1dz2Wb-p0Y0taGZw/exec"
-            target="none"
-          >
+          <Form onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor="email">이메일</label>
             <input
               id="email"
@@ -82,10 +117,7 @@ const Contact = () => {
               placeholder="이메일을 입력해 주세요"
               {...register("email", {
                 required: true,
-                pattern: {
-                  value: /\S+@\S+\.\S+/,
-                  message: "이메일 형식에 맞지 않습니다.",
-                },
+                pattern: /\S+@\S+\.\S+/,
               })}
             />
             {errors.email && (
@@ -106,7 +138,7 @@ const Contact = () => {
               메일 보내기
             </button>
           </Form>
-          <iframe name="none" style={{ display: "none" }}></iframe>
+          <iframe name="none" style={{ display: "none" }} />
         </MailBox>
       </Content>
     </Wrap>
@@ -307,13 +339,13 @@ const Form = styled.form`
     border: none;
     outline: none;
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 5px 8px;
     background-color: #1f485e44;
   }
 
   textarea {
     border-radius: 5px;
-    padding: 8px 10px;
+    padding: 8px 8px;
     outline: none;
     resize: none;
     border: none;
