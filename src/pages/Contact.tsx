@@ -22,7 +22,7 @@ const Contact = () => {
 
   const onSubmit = (data: FormData) => {
     const googleUrl =
-      "https://script.google.com/macros/s/AKfycbyZGSnQ4kGaYWCTH0ktfxCcM3YhiO88tVLAlNItCyRNS2fiVUHdrj15RfNoxjZsxDH2qQ/exec";
+      "https://script.google.com/macros/s/AKfycbxlILDI5IinA6hXjLm8BF_XffZVFpszVURKn78YYC6joYaBxgHdC1trMt41q6b6NMxwDQ/exec";
 
     // fetch 설정
     fetch(googleUrl, {
