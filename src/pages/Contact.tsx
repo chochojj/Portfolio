@@ -15,20 +15,21 @@ const Contact = () => {
   const {
     register,
     handleSubmit,
-    formState: { isSubmitting, errors, isDirty, isValid },
+    formState: { isSubmitting, errors },
   } = useForm();
   const bubbleRef = useRef<HTMLSpanElement | null>(null);
   const [isEmailSent, setIsEmailSent] = useState<boolean>(false);
 
   const onSubmit = (data: FormData) => {
     const googleUrl =
-      "https://script.google.com/macros/s/AKfycbywqwt41TZysEW33MmuvlbkvJHT875ct8BKSwJbaQwz_nvum4SYVS1dz2Wb-p0Y0taGZw/exec";
+      "https://script.google.com/macros/s/AKfycbyZGSnQ4kGaYWCTH0ktfxCcM3YhiO88tVLAlNItCyRNS2fiVUHdrj15RfNoxjZsxDH2qQ/exec";
 
     // fetch 설정
     fetch(googleUrl, {
+      redirect: "follow",
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "text/plain;charset=utf-8",
       },
       body: JSON.stringify({
         email: data.email,
