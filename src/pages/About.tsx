@@ -214,6 +214,10 @@ const Wrap = styled.main`
   a {
     text-decoration: none;
     color: white;
+
+    &:hover {
+      color: pink;
+    }
   }
 `;
 
