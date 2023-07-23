@@ -100,8 +100,16 @@ const About = () => {
             <span>010-6522-4733</span>
           </div>
           <div>
-            <span>BootCamp</span>
-            <span>코드스테이츠 43기</span>
+            <span>blog</span>
+            <span>
+              <a
+                href="https://www.notion.so/chochojj/TIL-512e6f89bf1f41228a69b97a1336b37e"
+                target="_blank"
+                rel="noreferrer"
+              >
+                notion 블로그 방문
+              </a>
+            </span>
           </div>
         </Profile>
         <Category>Skill</Category>
@@ -201,6 +209,11 @@ const Wrap = styled.main`
 
   span {
     display: flex;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
   }
 `;
 
