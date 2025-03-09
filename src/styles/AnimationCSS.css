@@ -1,0 +1,253 @@
+/* 프리미어 인플루언서 팝업창 닫기 */
+@keyframes premierClose {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+#premierClose {
+    animation: premierClose 0.3s forwards;
+}
+
+
+
+/* 인플루언서 상세정보창 오픈/클로즈 */
+@keyframes toggleToBottom {
+    from {
+        max-height: 0px;
+    }
+    to {
+        max-height: 1000px;
+    }
+}
+@keyframes toggleToTop {
+    from {
+
+    }
+    to {
+        max-height: 0px;
+    }
+}
+#toggleOpen {
+    animation: toggleToBottom 0.8s ease-in-out;
+}
+#toggleClose {
+    animation: toggleToTop 0.8s forwards;
+}
+
+
+
+@keyframes toggleToBottom2 {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes toggleToTop2 {
+    from {
+		opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+#toggleOpen2 {
+    animation: toggleToBottom2 0.5s ease-in-out;
+}
+#toggleClose2 {
+    animation: toggleToTop2 0s forwards;
+}
+
+
+/* 인플루언서 상세정보 버튼(arrow) 돌리기 */
+@keyframes rotate90 {
+    from {
+        transform: scaleY(1);
+    }
+    to {
+        transform: scaleY(-1);
+    }
+}
+@keyframes rotate90_2 {
+    from {
+        transform: scaleY(-1);
+    }
+    to {
+        transform: scaleY(1);
+    }
+}
+#buttonRotate {
+    animation: rotate90 0.5s forwards;
+}
+#buttonRotate2 {
+    animation: rotate90_2 0.5s forwards;
+}
+
+
+
+/* 필터 체크 */
+.campaign-manager-dropZone_filter {
+    filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.1));
+}
+.campaign-manager-dropZone_filter .active{
+	display: block;
+}
+.campaign-manager-dropZone_filter .field{
+	padding:1rem 0 1rem 1rem;
+}
+.dropZone2 .chiller_cb input:checked ~ span{
+	background-color: #fff;
+}
+.dropZone2 .chiller_cb label{
+	color: #949494;
+	font-size: 12px;
+}
+.dropZone2 .chiller_cb input:checked+label{
+	color : #8567fe;
+}
+.dropZone2 .chiller_cb input:disabled+label{
+	color : #949494;
+}
+.dropZone2 .chiller_cb label:hover{
+	/* color : #8567fe; */
+}
+.dropZone2 .chiller_cb label::after{
+	color : #949494;
+}
+.dropZone2 .filterCheck::before{
+	background-color: #8567fe;
+}
+.dropZone2 .filterCheck::after{
+	background-color: #8567fe;
+}
+.chiller_cb span:before,
+.chiller_cb span:after {
+	content: "";
+	width: 0;
+	height: 0.2rem;
+	display: inline-block;
+	position: absolute;
+	transform-origin: 0% 0%;
+	-webkit-transform-origin: 0% 0%;
+	-moz-transform-origin: 0% 0%;
+	-ms-transform-origin: 0% 0%;
+	background: #fff;
+}
+.chiller_cb {
+	position: relative;
+	display: flex;
+	align-items: center;
+	margin-bottom: 17px;
+}
+.chiller_cb input {
+	display: none;
+}
+.chiller_cb input:checked ~ span {
+	background: #8567fe;
+	border-radius: 4px;
+	border: 1px solid #8567fe;
+}
+.chiller_cb input:checked ~ span:before {
+	width: 0.8rem;
+	height: 0.15rem;
+	transition: width 0.1s;
+	transition-delay: 0.3s;
+}
+.chiller_cb input:checked ~ span:after {
+	width: 0.6rem;
+	height: 0.15rem;
+	transition: width 0.1s;
+	transition-delay: 0.2s;
+}
+.chiller_cb input:disabled ~ span {
+	background: #ececec;
+	border-color: #dcdcdc;
+}
+.chiller_cb input:disabled ~ label {
+	color: #dcdcdc;
+}
+.chiller_cb input:disabled ~ label:hover {
+	cursor: default;
+}
+.chiller_cb label {
+	position: relative;
+	margin-bottom: 0;
+	padding-left: 30px;
+	color: #373737;
+	line-height: 16px;
+	cursor: pointer;
+	z-index: 2;
+}
+.chiller_cb label a {
+	color: #8567fe;
+}
+.chiller_cb span {
+	width: 19px;
+	height: 19px;
+	display: inline-block;
+	background: #fff;
+	border: 1px solid #e0e0e0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	box-sizing: content-box;
+	border-radius: 3px;
+	transition: all 0.2s;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-ms-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	transform: translateY(-0.125rem);
+	-webkit-transform: translateY(-0.125rem);
+	-moz-transform: translateY(-0.125rem);
+	-ms-transform: translateY(-0.125rem);
+	-o-transform: translateY(-0.125rem);
+}
+.chiller_cb span:before {
+	top: 0.9rem;
+	left: 0.5rem;
+	transform: rotate(-50deg);
+	-webkit-transform: rotate(-50deg);
+	-moz-transform: rotate(-50deg);
+	-ms-transform: rotate(-50deg);
+}
+.chiller_cb span:after {
+	bottom: 0.6rem;
+	left: 0.2rem;
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+}
+
+
+
+/* 인플루언서 모달창 */
+.list-card__more-box{
+	width: 110px;
+	display: none;
+	position:absolute;
+	background:#fff;
+	right: 0px;
+	border: 1px solid #E0E0E0;
+	border-radius: 8px;
+	overflow: hidden;
+	z-index: 10000;
+	filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.1));
+	top: 25px;
+}
+.list-card__more-box.active{
+	display: block;
+}
+.list-card__more-box .list-card__more-item{
+	padding:1rem;
+}
+.list-card__more-box .list-card__more-item:hover{
+	background: #F2F3F7;
+	color:var(--primary-color1);
+}

@@ -1,0 +1,14 @@
+#textarea-introduce.edit{
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    padding: 0.75rem;
+    min-height: 48px;
+}
+
+#btn-edit-introduce.edit{
+    border: 1px solid #8567FE;
+    color: #8567FE;
+    background-color: white;
+    padding: 6px;
+}
+

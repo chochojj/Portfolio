@@ -1,0 +1,53 @@
+
+div.react-tooltip{
+    width: 206px;
+    font-size: 14px;
+    line-height: 1.4;
+    background-color: rgba(0,0,0,0.75);
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 600;
+}
+
+.reactEasyCrop_Container{
+    position: absolute;
+    height: 200px;
+}
+
+.dashed-borders{
+    flex:1;
+    margin: 0 10px;
+    overflow: hidden;
+}
+.dashed-borders::before{
+    content: "-------------------------------------------------------------------------------";
+    display: block;
+    font-size: 13px;
+    white-space:nowrap;
+    color: #DFDFDF;
+}
+
+span.cropper-point{
+    background-color: #8567FE;
+}
+
+div.cropBox > img{
+    width: 100%;
+    object-fit: contain;
+}
+
+div.img-preview{
+     overflow: hidden;
+}
+
+div.cropper-container{
+    position: absolute;
+}
+
+button.cropSaveBtn{
+    border-left: 1px solid #E8E8E8;
+}
+
+div#swal2-html-container{
+       /* margin: 40px 24px 24px !important; */
+}

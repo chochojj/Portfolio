@@ -1,0 +1,161 @@
+
+
+.scroll::-webkit-scrollbar {
+  display: block;
+    width: 6px;
+}
+
+.scroll::-webkit-scrollbar {
+   display:inline-block;
+    width: 6px;
+}
+.scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius:3px;
+  }
+
+.biz_gradient_text{
+   background: linear-gradient(139deg, #D810FB -3.79%, #3953ED 103.35%);
+   background-clip: text;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   font-weight: 700;
+   line-height: 160%;
+}
+
+ @keyframes scrollMain {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-90%);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%); 
+  }
+}
+
+.scrolling-list-slow {
+  display: flex;
+  animation: scroll 15s linear infinite;
+  
+}
+
+.scrolling-banner {
+  display: flex;
+  animation: scroll 15s linear infinite;
+}
+
+.scrolling-list-under {
+  display: flex;
+  animation: scroll 30s linear infinite;
+}
+               
+.scrolling-list {
+  display: flex;
+  animation: scrollMain 25s linear infinite;
+}
+
+.scrolling-list.paused {
+    animation-play-state: paused;
+}
+
+
+
+.slick-dotted.slick-slider
+{
+    margin-bottom: 30px;
+}
+
+.feat_slide_dots
+{
+    width: 100%;
+    padding: 48px 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+}
+.feat_slide_dots li
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+
+    cursor: pointer;
+}
+.feat_slide_dots li button
+{
+    font-size: 0;
+    line-height: 0;
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+
+    cursor: pointer;
+
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+.feat_slide_dots li button:hover,
+.feat_slide_dots li button:focus
+{
+    outline: none;
+}
+.feat_slide_dots li button:hover:before,
+.feat_slide_dots li button:focus:before
+{
+    opacity: 1;
+}
+.feat_slide_dots li button:before
+{
+    font-family: 'slick';
+    font-size: 12px;
+    line-height: 20px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 20px;
+    height: 20px;
+
+    content: '•';
+    text-align: center;
+
+    color: #E8E8E8;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.feat_slide_dots li.slick-active button:before
+{
+    color: #714DFE;
+}
+
+
+@media screen and (max-width: 720px) {
+  .feat_slide_dots{
+    padding: 24px 0;
+  }
+  
+  .feat_slide_dots li button:before{
+     font-size: 8px;
+  }
+}

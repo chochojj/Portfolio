@@ -1,0 +1,248 @@
+
+.campaign-detail__image {
+	overflow: hidden;
+	background: linear-gradient(180deg, #FFFFFF 23.96%, rgba(255, 255, 255, 0) 100%);
+	z-index: 2;
+	position: relative;
+}
+
+.campaign-detail__image.small {
+	height: 450px;
+}
+
+.campaign-detail__image.large {
+	height: 1800px;
+}
+
+.campaign-detail__image {
+	overflow: hidden;
+	background: linear-gradient(180deg, #FFFFFF 23.96%, rgba(255, 255, 255, 0) 100%);
+	z-index: 2;
+	position: relative;
+}
+
+.campaign-detail__image.small {
+	height: 450px;
+}
+
+.campaign-detail__image.large {
+	height: 1800px;
+}
+
+.campaign-detail__image.small::after,
+.campaign-detail__image.large::after
+{
+	content:'';
+	position:absolute;
+	left:0; top:0;
+	width:100%; height:100%;
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 75%,rgba(255, 255, 255, 1.0));
+}
+
+.campaign-detail__image.active {
+	height: auto;
+}
+
+.campaign-detail__image.active::after {
+	visibility: hidden;
+}
+
+/* 상세 이미지 간 간격 */
+.campaign-detail__image img {
+	margin-bottom: -2px;
+}
+.campaign-detail__image.active img {
+	margin-bottom: -2px;
+}
+
+.campaign-detail__copyTag {
+  width: 3.5rem;
+	height: 1.125rem;
+	font-size: 0.75rem;
+	color: #806FE9;
+	border-radius: 3px;
+	border: 1px solid #7A79FE;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.campaign-detail-visit-info-contens{
+	margin-bottom: 16px;
+}
+
+.campaign-detail-visit-info-contens li{
+	display: flex;
+	gap:8px;
+    padding-bottom: 12px;
+}
+
+.campaign-detail-visit-info-contens li h3{
+	width: 5.5rem;
+    border-right: 1px solid #F2F3F7;
+    white-space:nowrap;
+	line-height: 1.25rem;
+	font-size: 0.875rem;
+}
+
+.campaign-detail-visit-info-contens li p{
+	line-height: 1.5rem;
+    color: #949494;
+}
+.campaign-detail-visit-info-contens li li{
+	padding-left: 1rem;
+	line-height: 1.5rem;
+    color: #949494;
+}
+
+.campaign-detail-visit-info-contens li:last-child{
+	display: flex;
+    padding-bottom: 0px;
+}
+.campaign-detail-visit-info-contens-body p{
+	font-size: 14px;
+}
+
+.bottom-state-box{
+	width: 100%;
+    min-width: 280px;
+    max-width: 720px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    z-index: 61;
+    box-shadow: 0 -7px 5px -5px rgb(51 51 51 / 9%);
+}
+
+.notice__container {
+	padding: 1.25rem;
+}
+
+.notice__sub-container {
+	margin: 2.5rem 0;
+}
+
+.notice__title {
+	margin: 1.25rem 0;
+	font-weight: 800;
+	font-size: 18px;
+	line-height: 26px;
+}
+
+.notice__lists li {
+	list-style: inside;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.notice__btn-container {
+	margin: 2.5rem 0;
+}
+
+.camp-detail__reward-info {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem;
+	margin: 1rem 1rem 1rem 1rem;
+	border: 1px solid #C7C7C7;
+	border-radius: 8px;
+}
+
+.camp-detail__reward-info img {
+	width: 16px;
+	height: 100%;
+	margin-right: 0.5rem;
+}
+
+.camp-detail__reward-text {
+	flex: 1;
+	color: #9C9C9C;
+}
+
+.camp-detail__point-info {
+	padding-bottom: 1rem;
+	display: flex;
+	align-items: center;
+}
+
+.camp-detail__point-badge {
+	background: #F2F3F7;
+	border-radius: 6px;
+	font-weight: 800;
+	font-size: 12px;
+	color: #7664E7;
+	padding: 6px 8px;
+}
+
+.camp-detail__point-badge .regular {
+	font-weight: 400;
+}
+
+.badge {
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    padding: 0 0.4em;
+}
+
+
+#missionMsg{
+   width: 100%;
+   height:fit-content;
+}
+
+.ql-toolbar{
+   border-radius: 6px 6px 0px 0px;
+   border: 1px solid #E8E8E8;
+   background: #FFF;
+}
+
+.ql-container{
+   border-radius: 0px 0px 6px 6px;
+   border: 1px solid #E8E8E8;
+   background: #FFF;
+}
+
+
+.ql-editor::placeholder {
+   color: #B7B7B7;
+}
+
+.ql-editor{
+   height:fit-content;
+   min-height:760px;
+   max-height:760px;
+   overflow-y: scroll;
+   font-size: 16px;
+   font-style: normal;
+   line-height: 22px;
+}
+
+.ql-disabled{
+	color:#B7B7B7;
+   background:#F5F5F5;
+}
+
+
+div#swal2-html-container{
+    padding: 1em 0em .3em;
+	margin: 6px 19px 36px !important;
+}
+
+
+@media only screen and (max-device-width: 350px) {
+	input[type='date']{
+		border: none;
+		position: relative;
+		width: 100%;
+		background: url('/next/assets/images/icons/ico_calendar_v2.svg') no-repeat left 0px center / 24px auto;
+		text-align: center;
+		padding-left: 1rem;
+	}
+}

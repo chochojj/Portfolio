@@ -1,0 +1,212 @@
+
+body{
+   -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll_hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.balloon-container {
+    position: absolute;
+    left: 50%;
+    top:-5px;
+    transform: translate(-50%, -50%);
+}
+.balloon {
+    padding: 8px 12px;
+    background-color: #000000;
+    color: #fff;
+    border-radius: 25px;
+    bottom: 100%;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px;
+}
+ 
+.balloon::after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 4px 4px 0;
+    border-color: #000000 transparent transparent transparent;
+    left: 10%;
+    top: 97%;
+    transform: translateX(-50%);
+   transform: rotate(225deg);
+}
+
+
+input[type='radio'] {
+  -webkit-appearance: none; 
+  -moz-appearance: none; 
+  appearance: none; 
+  width: 20px;
+  height: 20px;
+  border: 2px solid #DFDFDF; 
+  border-radius: 50%;
+  outline: none; 
+  cursor: pointer;
+}
+
+input[type='radio']:checked {
+   width: 17px;
+   height: 17px;
+   background-color: #8567FE; 
+   border: 3px solid white; 
+   box-shadow: 0 0 0 1.6px #8567FE;
+}
+
+/* 세로 스크롤 */
+/* .scroll_bar_list::-webkit-scrollbar {
+   display:inline-block;
+    width: 6px;
+  }
+  .scroll_bar_list::-webkit-scrollbar-thumb {
+    background-color: #CBCBCB;
+    border-radius:3px;
+  }
+  .scroll_bar_list::-webkit-scrollbar-track {
+    background-color: rgba(0,0,0,0);
+} */
+
+/* 가로 스크롤 */
+.scroll_bar_list2::-webkit-scrollbar {
+   display:inline-block;
+    width: 0px;
+    height:6px;
+  }
+.scroll_bar_list2::-webkit-scrollbar-thumb {
+    background-color: #CBCBCB;
+    border-radius:3px;
+}
+.scroll_bar_list2::-webkit-scrollbar-track {
+    background-color: rgba(0,0,0,0);
+}
+
+/* Checked */
+.sponTypeBtn input[type=radio]:checked + label {
+	color: #8567FE;
+}
+		 
+/* *{color:red} */
+
+#missionMsg{
+   width: 100%;
+   height:fit-content;
+}
+
+.ql-toolbar{
+   border-radius: 6px 6px 0px 0px;
+   border: 1px solid #E8E8E8;
+   background: #FFF;
+}
+
+.ql-container{
+   border-radius: 0px 0px 6px 6px;
+   border: 1px solid #E8E8E8;
+   background: #FFF;
+}
+
+#reportEditor {
+   width: 100%
+}
+
+#reportEditor > .ql-toolbar{
+   border-radius: 6px 6px 0px 0px;
+   border: 1px solid #E8E8E8;
+   background: #FFF;
+}
+
+#reportEditor > .ql-container{
+   border-radius: 0px 0px 6px 6px;
+   border: 1px solid #E8E8E8;
+   background: #FFF;
+}
+
+.ql-editor::placeholder {
+   color: #B7B7B7;
+}
+
+.ql-editor{
+   height:fit-content;
+   min-height:540px;
+   max-height:540px;
+   overflow-y: scroll;
+   font-size: 16px;
+   font-style: normal;
+   line-height: 22px;
+}
+
+#preferSkill .ql-editor{
+   height:fit-content;
+   min-height:120px;
+   max-height:120px;
+   overflow-y: scroll;
+   font-size: 16px;
+   font-style: normal;
+   line-height: 22px;
+}
+
+#aiMissionMsg .ql-editor{
+   height:fit-content;
+   min-height:320px;
+   max-height:320px;
+   overflow-y: scroll;
+   font-size: 16px;
+   font-style: normal;
+   line-height: 22px;
+}
+
+#preferSkill .ql-container.ql-snow  {
+ border: 1px solid #E8E8E8;
+}
+
+#preferSkill .ql-toolbar.ql-snow  {
+   border: 1px solid #E8E8E8;
+}
+
+#preferSkill .ql-toolbar.ql-snow + .ql-container.ql-snow{
+   border-top:0px
+}
+
+#aiMissionMsg .ql-toolbar.ql-snow {
+   border: 1px solid #E8E8E8;
+}
+
+#aiMissionMsg .ql-toolbar.ql-snow + .ql-container.ql-snow{
+   border-top:0px
+}
+#aiMissionMsg .ql-container.ql-snow {
+    border: 1px solid #E8E8E8;
+}
+
+.ql-disabled{
+	color:#B7B7B7;
+   background:#F5F5F5;
+}
+
+@media only screen and (max-device-width: 1160px) {
+   .client_performer_search_list {
+      width: 100%;
+  }
+}
+
+ @media only screen and (max-device-width: 1439px) and (min-device-width: 1160px) {
+   .client_performer_search_list {
+      width: calc(100vw - 111px)
+  }              
+}
+
+@media only screen and (min-device-width: 1440px) {
+   .client_performer_search_list {
+      width: calc(100vw - 270px)
+   }                      
+}
