@@ -1,20 +1,27 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": false,
-    "noEmit": true,
-    "jsx": "react-jsx"
-  },
-  "include": ["src"]
+	"compilerOptions": {
+		"target": "es2017",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"strict": false,
+		"noEmit": true,
+		"incremental": true,
+		"esModuleInterop": true,
+		"module": "esnext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+	},
+	"include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx", "src/lib/auth.js", "src/app/login/formLogin.tsx", "src/components/input.component.js", "src/store/useMainDataStore.js", "src/app/signup/form.js", "src/app/api/auth/[...nextauth]/route.js", "src/app/search/search.js", "src/util/kakaoFunc.js", "src/components/navBottom.component.js", "src/util/cordova.js", "src/hooks/useMainData.js", "src/components/client/sidebar.component.js", "src/components/client/sidebar.component.js", "src/util/QuillNoSSRWrapper.js", "src/store/useBizClientState.js", "src/app/portfolio/[id]/report/CampHistoryData.tsx", "src/util/tinyMceEditor.js",  "src/idfa.d.ts"],
+	"exclude": ["node_modules"]
 }
