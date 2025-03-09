@@ -23,8 +23,6 @@ export const metadata = {
 
 export default function RootLayout({ children, }: { children: React.ReactNode; }) {
 
-  // console.log(cookies().get('LOGIN'));
-
   return (
     <html lang="ko">
       <body className="">

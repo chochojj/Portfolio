@@ -69,9 +69,6 @@ module.exports = {
         "purple-700": "#714DFE",
         "purple-800": "#42339E",
         "bluegray-100": "#F2F3F7",
-        "pink-650": "#FF6384",
-        "pgray-616161": "#616161",
-        "popomon-red": "#FF5656",
       },
       fontSize: {
         "h-1": [

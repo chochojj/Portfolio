@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-const { NEXT_PUBLIC_S3_IMAGE_URL, NEXT_PUBLIC_BASE_URL } = process.env;
 
 
 const getFormattedDate = () => {
@@ -31,62 +30,7 @@ const nextConfig = {
         return '0.0.1'
     },
 
-    images: {
-        domains: NEXT_PUBLIC_S3_IMAGE_URL
-            ? [
-                new URL(NEXT_PUBLIC_S3_IMAGE_URL).hostname,
-                new URL(NEXT_PUBLIC_BASE_URL).hostname,
-                "d17jwiodubhsh2.cloudfront.net",
-                'ldb-phinf.pstatic.net',
-                'naverbooking-phinf.pstatic.net'
-            ]
-            : ['ldb-phinf.pstatic.net', 'naverbooking-phinf.pstatic.net'],
-    },
-
-    headers: async () => {
-        return [
-            {
-                headers: [
-                    {
-                        key: 'Cache-Control',
-                        value: 'private, no-cache, no-store, max-age=0, must-revalidate',
-                    },
-                ],
-
-                source: '/:path*',
-            },
-            {
-                headers: [
-                    {
-                        key: 'Cache-Control',
-                        value: 'public, max-age=86400, immutable',
-                    },
-                ],
-
-                source: '/:path(.+\\.(?:ico|png|svg|jpg|jpeg|gif|webp|json|mp3|mp4|ttf|ttc|otf|woff|woff2)$)',
-            },
-            {
-                headers: [
-                    {
-                        key: 'Cache-Control',
-                        value: 'private, no-cache, no-store, max-age=0, must-revalidate',
-                    },
-                ],
-
-                source: '/_next/data/:path*',
-            },
-            {
-                headers: [
-                    {
-                        key: 'Cache-Control',
-                        value: 'private, no-cache, no-store, max-age=0, must-revalidate',
-                    },
-                ],
-
-                source: '/_next/:path(.+\\.(?:json)$)',
-            },
-        ];
-    },
+ 
 };
 
 module.exports = nextConfig;
