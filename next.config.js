@@ -12,8 +12,8 @@ const getFormattedDate = () => {
 const nextConfig = {
     reactStrictMode: false,
     swcMinify: true,
-    basePath: '/next',
-    assetPrefix: '/next/',
+    basePath: '',     
+    assetPrefix: '',  
 
 
     webpack(config, { isServer }) {

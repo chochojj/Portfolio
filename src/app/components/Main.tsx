@@ -73,9 +73,9 @@ export const Header = () => {
     return(
         <section className="w-full h-16 sticky top-0 flex justify-center backdrop-blur-lg">
             <article className="w-full h-full flex gap-x-5 items-center max-w-[1320px] px-5 text-t-1 text-[#083459]">
-                <Link href={''}>About</Link>
-                <span>Project</span>
-                <span>Contact</span>
+                <Link href={'#about'}>About</Link>
+                <Link href={'#project'}>Project</Link>
+                <Link href={'#contact'}>Contact</Link>
             </article>   
         </section>
 
@@ -86,7 +86,7 @@ export const Header = () => {
 export const About = () => {
 
     return(
-        <section className="w-full h-fit flex justify-center">
+        <section className="w-full h-fit flex justify-center" id="about">
             <article className="w-full max-w-[1320px] px-5">
                 <h2 className="text-3xl font-semibold text-gray-800 mb-4">My Projects</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
@@ -105,17 +105,14 @@ export const About = () => {
 export const Project = () => {
 
     return(
-        <section className="w-full h-fit flex justify-center">
-            <article className="w-full max-w-[1320px] px-5">
-                <h2 className="text-3xl font-semibold text-gray-800 mb-4">My Projects</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                {/* Example Project */}
-                <div className="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-2">Project Title</h3>
-                    <p className="text-gray-600">A brief description of the project goes here. It's a great project.</p>
-                </div>
-                {/* Add more project cards as needed */}
-                </div>
+        <section className="w-full h-fit flex justify-center" id="project">
+            <article className="w-full max-w-[1320px] px-5 flex flex-col pc:flex-row gap-4">
+               <div>
+                    {/* 자기 소개 */}
+               </div>
+               <div>
+                    {/* 스킬 */}
+               </div>
             </article>
         </section>
     )
@@ -124,7 +121,7 @@ export const Project = () => {
 export const Contact = () => {
 
     return(
-        <section className="w-full h-fit flex justify-center bg-[#F5DDB0]">
+        <section className="w-full h-fit flex justify-center bg-[#F5DDB0]" id="contact">
             <article className="w-full max-w-[1320px] py-12 pc:py-16 px-5 items-center flex flex-col">
                 <h2 className="text-xl lg:text-3xl pc:text-5xl font-semibold text-[#083459] mb-2 text-center">THANK YOU</h2>
                 <p className="text-base lg:text-xl lg:text-xl font-semibold text-[#083459] text-center mb-8">더 궁금한 점이 있다면 언제든지 연락주세요</p>

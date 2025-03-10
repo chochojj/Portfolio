@@ -25,6 +25,10 @@ dd {
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 button, a, div{
   -webkit-tap-highlight-color : transparent !important;
 }
