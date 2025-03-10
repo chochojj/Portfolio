@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Footer from "./Footer";
 import Link from "next/link";
+import projectData from "@/data/projectData";
 
 export const Main = () => {
   
@@ -87,15 +88,33 @@ export const About = () => {
 
     return(
         <section className="w-full h-fit flex justify-center" id="about">
-            <article className="w-full max-w-[1320px] px-5">
-                <h2 className="text-3xl font-semibold text-gray-800 mb-4">My Projects</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                {/* Example Project */}
-                <div className="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-2">Project Title</h3>
-                    <p className="text-gray-600">A brief description of the project goes here. It's a great project.</p>
+            <article className="w-full max-w-[1320px] flex flex-col gap-y-6 px-5">
+                <h2 className="text-xl lg:text-3xl pc:text-5xl font-semibold text-[#083459] mb-2 text-center">About</h2>
+                <div className="w-full">
+                    <h2 className="w-fit text-xl pc:text-3xl font-semibold text-[#083459] mb-2 bg-[#F5DDB0]">Profile</h2>
+                    <div className="flex flex-col pc:flex-row gap-4">
+                        <div>
+                                {/* 자기 소개 */}
+                                1
+                        </div>
+                        <div>
+                                {/* 스킬 */}
+                                2
+                        </div>
+                    </div>
                 </div>
-                {/* Add more project cards as needed */}
+                <div>
+                    <h2 className="w-fit text-xl pc:text-3xl font-semibold text-[#083459] mb-2 bg-[#F5DDB0]">Skills</h2>
+                    <div className="flex flex-col pc:flex-row gap-4">
+                        <div>
+                                {/* 자기 소개 */}
+                                1
+                        </div>
+                        <div>
+                                {/* 스킬 */}
+                                2
+                        </div>
+                    </div>
                 </div>
             </article>
         </section>
@@ -106,13 +125,18 @@ export const Project = () => {
 
     return(
         <section className="w-full h-fit flex justify-center" id="project">
-            <article className="w-full max-w-[1320px] px-5 flex flex-col pc:flex-row gap-4">
-               <div>
-                    {/* 자기 소개 */}
-               </div>
-               <div>
-                    {/* 스킬 */}
-               </div>
+            <article className="w-full max-w-[1320px] px-5 flex flex-col gap-y-6">
+                <h2 className="text-xl lg:text-3xl pc:text-5xl font-semibold text-[#083459] mb-2 text-center">Project</h2>
+                <div className="flex flex-col pc:grid pc:grid-cols-3 gap-4">
+                    {projectData.map((project, index) => (
+                        <div key={index}>
+                        {/* 프로젝트 정보 출력 */}
+                        <h2>{project.title}</h2>
+                        {/* <p>{project.description}</p> */}
+                        {/* 필요에 따라 추가적인 정보도 렌더링 */}
+                        </div>
+                    ))}
+                </div>
             </article>
         </section>
     )
