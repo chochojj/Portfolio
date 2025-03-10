@@ -124,18 +124,25 @@ export const Project = () => {
 export const Contact = () => {
 
     return(
-        <section className="w-full h-fit flex justify-center py-4 pc:py-8 bg-[#F5DDB0]">
-            <article className="w-full max-w-[1320px] py-12 pc:py-20 px-5">
-                <h2 className="text-3xl font-semibold text-gray-800 mb-4">THANK YOU</h2>
-                <span className="text-3xl font-semibold text-gray-800 mb-4">더 궁금한 점이 있다면 언제든지 연락주세요</span>
-                <div className="grid grid-cols-2 gap-8">
-                    <div className="bg-white p-6 rounded-lg shadow-lg">
-                        <h3 className="text-2xl font-bold text-gray-800 mb-2">Project Title</h3>
-                        <p className="text-gray-600">A brief description of the project goes here. It's a great project.</p>
-                    </div>
-                    <div className="bg-white p-6 rounded-lg shadow-lg">
-                        <h3 className="text-2xl font-bold text-gray-800 mb-2">Project Title</h3>
-                        <p className="text-gray-600">A brief description of the project goes here. It's a great project.</p>
+        <section className="w-full h-fit flex justify-center bg-[#F5DDB0]">
+            <article className="w-full max-w-[1320px] py-12 pc:py-16 px-5 items-center flex flex-col">
+                <h2 className="text-xl lg:text-3xl pc:text-5xl font-semibold text-[#083459] mb-2 text-center">THANK YOU</h2>
+                <p className="text-base lg:text-xl lg:text-xl font-semibold text-[#083459] text-center mb-8">더 궁금한 점이 있다면 언제든지 연락주세요</p>
+                <div className="w-full max-w-[520px] bg-white p-6 rounded-lg shadow-lg flex flex-col items-center gap-y-4">
+                    <div className="w-36 aspect-square bg-gray-50 rounded-full overflow-hidden"></div>
+                    <div className="flex flex-col gap-y-2 text-[#083459] font-semibold">
+                        <div>
+                            <span>Github : </span>
+                            <Link href={`https://github.com/chochojj`} className="hover:text-[#93C6D3] transition-colors duration-300">github.com/chochojj</Link>
+                        </div>
+                        <div>
+                            <span>Phone : </span>
+                            <Link href={`tel:010-6522-4733`} className="hover:text-[#93C6D3] transition-colors duration-300">010-6522-4733</Link>
+                        </div>
+                        <div>
+                            <span>E-mail : </span>
+                            <Link href={`mailto:csgy114@gmail.com`} className="hover:text-[#93C6D3] transition-colors duration-300">csgy114@gmail.com</Link>
+                        </div>
                     </div>
                 </div>
             </article>
