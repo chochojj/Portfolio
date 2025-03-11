@@ -6,9 +6,47 @@ import Link from "next/link";
 import Image from 'next/image'
 import projectData from "@/data/projectData";
 import { log } from "node:console";
+import { useDebounce } from "@/hook/useDebounce";
+import useObserver from "@/hook/useObserver";
 
 export const Main = () => {
     const [isModal, setIsModal] = useState(null);
+    const [isViewSection, setIsViewSection] = useState('about');
+    const [debouncedSection, setDebouncedSection] = useState(isViewSection);
+    const debouncedIsViewSection = useDebounce(debouncedSection, 300);
+
+    const { entry: aboutEntry, setTarget: setAboutTarget } = useObserver({ threshold: 0.5 });
+    const { entry: projectEntry, setTarget: setProjectTarget } = useObserver({ threshold: 0.3 });
+    const { entry: contactTipEntry, setTarget: setContactTarget } = useObserver({ threshold: 0.3 });
+
+    const scrollMove = (id) => {
+        const elementPosition = document.getElementById(id).getBoundingClientRect().top + window.scrollY;
+
+        window.scrollTo({
+            top: elementPosition - 84,
+            behavior: 'smooth'
+        });
+    }
+
+    const handleViewSection = (id) => {
+        setIsViewSection(id)
+        scrollMove(id)
+    }
+
+    useEffect(() => {
+        if (aboutEntry?.isIntersecting) {
+            setDebouncedSection('about');
+        } else if (projectEntry?.isIntersecting) {
+            setDebouncedSection('project');
+        } else if (contactTipEntry?.isIntersecting) {
+            setDebouncedSection('contact');
+        }
+    }, [aboutEntry, projectEntry, contactTipEntry]);
+
+    useEffect(() => {
+        setIsViewSection(debouncedIsViewSection);
+    }, [debouncedIsViewSection]);
+
 
 
     return (
@@ -16,11 +54,11 @@ export const Main = () => {
             {isModal?.id &&isModal?.id !=='' && <ProjectModal isModal={isModal} setIsModal={setIsModal}/>}
             <main className="w-full flex flex-col items-center h-fit min-h-screen bg-gray-50 relative">
                 <Intro />
-                <Header />
-                <section className="w-full h-fit flex flex-col gap-y-8 items-center">
-                    <About />
-                    <Project setIsModal={setIsModal}/>
-                    <Contact />
+                <Header isViewSection={isViewSection} handleViewSection={handleViewSection}/>
+                <section className="w-full h-fit flex flex-col gap-y-2 pc:gap-y-8 items-center">
+                    <About setAboutTarget={setAboutTarget}/>
+                    <Project setIsModal={setIsModal} setProjectTarget={setProjectTarget}/>
+                    <Contact setContactTarget={setContactTarget}/>
                 </section>
             </main>
             <Footer/>
@@ -75,14 +113,14 @@ export const Intro = ()=>{
     )
 }
 
-export const Header = () => {
+export const Header = ({isViewSection,handleViewSection}) => {
 
     return(
         <section className="w-full h-12 pc:h-16 sticky top-0 flex justify-center backdrop-blur-lg z-[100]">
-            <article className="w-full h-full flex gap-x-5 items-center max-w-[1320px] px-5 text-t-1 text-[#083459]">
-                <Link href={'#about'}>About</Link>
-                <Link href={'#project'}>Project</Link>
-                <Link href={'#contact'}>Contact</Link>
+            <article className="w-full h-full flex gap-x-3 pc:gap-x-5 items-center max-w-[1320px] px-5 text-t-1 text-[#083459]">
+                <button onClick={()=>handleViewSection('about')} className={`${isViewSection ==='about'?'text-[#93C6D3]':''}`}>About</button>
+                <button onClick={()=>handleViewSection('project')} className={`${isViewSection ==='project'?'text-[#93C6D3]':''}`}>Project</button>
+                <button onClick={()=>handleViewSection('contact')} className={`${isViewSection ==='contact'?'text-[#93C6D3]':''}`}>Contact</button>
             </article>   
         </section>
 
@@ -90,10 +128,10 @@ export const Header = () => {
 }
 
 
-export const About = () => {
+export const About = ({setAboutTarget}) => {
 
     return(
-        <section className="w-full h-fit flex justify-center" id="about">
+        <section className="w-full h-fit flex justify-center" id="about" ref={setAboutTarget}>
             <article className="w-full max-w-[1320px] flex flex-col gap-y-6 px-5">
                 <h2 className="text-xl lg:text-3xl pc:text-5xl font-semibold text-[#083459] mb-2 lg:mb-4 pc:mb-8 text-center">About</h2>
                 <div className="flex flex-col pc:flex-row gap-4 pc:gap-6 relative">
@@ -191,11 +229,11 @@ export const About = () => {
     )
 }
 
-export const Project = ({setIsModal}) => {
+export const Project = ({setIsModal, setProjectTarget}) => {
 
     return(
-        <section className="w-full h-fit flex justify-center py-6 pc:py-12" id="project">
-            <article className="w-full max-w-[1320px] px-5 flex flex-col gap-y-6">
+        <section className="w-full h-fit flex justify-center py-6 pc:py-12" id="project" ref={setProjectTarget}>
+            <article className="w-full max-w-[1320px] px-5 flex flex-col gap-y-4 pc:gap-y-6">
                 <h2 className="text-xl lg:text-3xl pc:text-5xl font-semibold text-[#083459] mb-2 lg:mb-4 pc:mb-8 text-center">Project</h2>
                 <div className="flex flex-col pc:grid pc:grid-cols-3 gap-4">
                     {projectData.map((project, index) => (
@@ -224,14 +262,14 @@ export const Project = ({setIsModal}) => {
                     <Link href={`https://github.com/chochojj`} className="group cursor-pointer rounded-md border flex flex-col justify-between border-[#083459] bg-[#083459] p-4 hover:shadow-md transition-transform duration-200 hover:-translate-y-1 hover:-translate-x-1">
                         <div className="flex flex-col">
                             <h2 className="w-fit relative text-lg font-bold text-white cursor-pointer">
-                                더 많은 프로젝트를 위한 깃헙 보기
+                                더 많은 프로젝트를 깃헙에서 확인하세요!
                                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
                             </h2>
                         </div>
-                        <div className="w-full h-fit flex flex-col items-center gap-y-4 py-3">
-                        <div className="relative w-[160px] h-[160px]">
+                        <div className="w-full h-fit flex flex-col items-center gap-y-4 py-6 pc:py-3">
+                        <div className="relative w-[100px] pc:w-[160px] aspect-square">
                             <div className="absolute inset-0 rounded-full border-4 border-[#F5DDB0] scale-0 transition-all duration-300 group-hover:scale-110"></div>
-                                <div className="w-[160px] h-[160px] rounded-full bg-white overflow-hidden relative">
+                                <div className="w-[100px] pc:w-[160px] aspect-square rounded-full bg-white overflow-hidden relative">
                                     <Image src="/assets/images/gom.png" className="w-full" width={200} height={200} alt="깃헙_프로필_이미지" />
                                 </div>
                             </div>
@@ -249,15 +287,17 @@ export const Project = ({setIsModal}) => {
     )
 }
 
-export const Contact = () => {
+export const Contact = ({setContactTarget}) => {
 
     return(
-        <section className="w-full h-fit flex justify-center bg-[#F5DDB0]" id="contact">
+        <section className="w-full h-screen flex justify-center items-center bg-[#F5DDB0]" id="contact" ref={setContactTarget}>
             <article className="w-full max-w-[1320px] py-12 pc:py-16 px-5 items-center flex flex-col">
                 <h2 className="text-xl lg:text-3xl pc:text-5xl font-semibold text-[#083459] mb-2 text-center">THANK YOU</h2>
                 <p className="text-base lg:text-xl font-semibold text-[#083459] text-center mb-8">더 궁금한 점이 있다면 언제든지 연락주세요</p>
                 <div className="w-full max-w-[520px] bg-white p-6 rounded-lg shadow-lg flex flex-col items-center gap-y-4">
-                    <div className="w-36 aspect-square bg-gray-50 rounded-full overflow-hidden"></div>
+                    <div className="w-36 aspect-square bg-gray-50 rounded-full overflow-hidden">
+                        <Image src="/assets/images/img.jpg" className="w-full h-full object-cover" width={200} height={200} alt="깃헙_프로필_이미지" />
+                    </div>
                     <div className="flex flex-col gap-y-2 text-[#083459] font-semibold">
                         <div>
                             <span>Github : </span>
