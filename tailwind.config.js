@@ -6,6 +6,9 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    fontFamily: {
+      pre: ['Pretendard'],
+    },
     backgroundPosition: {
       bottom: 'bottom',
       'bottom-4': 'center bottom 1rem',

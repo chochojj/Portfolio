@@ -2,6 +2,7 @@ import React from "react";
 import "@/styles/slick-theme.css";
 import "@/styles/slick.css";
 import "./globals.css";
+import Head from "next/head";
 
 
 export const metadata = {
@@ -27,6 +28,12 @@ export default function RootLayout({ children, }: { children: React.ReactNode; }
 
   return (
     <html lang="ko">
+       <Head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable-dynamic-subset.css"
+        />
+      </Head>
       <body className="">
         {children}
       </body>
