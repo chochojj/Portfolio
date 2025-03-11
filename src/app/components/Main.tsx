@@ -95,7 +95,7 @@ export const About = () => {
                 <h2 className="text-xl lg:text-3xl pc:text-5xl font-semibold text-[#083459] mb-2 lg:mb-4 pc:mb-8 text-center">About</h2>
                 <div className="flex flex-col pc:flex-row gap-4 pc:gap-6 relative">
                     <div className="w-full flex flex-col gap-y-2 pc:gap-y-4">
-                        <h2 className="w-fit h-fit text-xl pc:text-3xl font-semibold text-[#083459] bg-[#F5DDB0]">Profile</h2>
+                        <h2 className="w-fit h-fit text-xl pc:text-3xl font-semibold text-[#083459] bg-[#F5DDB0] mb-2 pc:mb-0">Profile</h2>
                         <div className="flex gap-x-4 items-end">
                             <div className="w-[100px] pc:w-[150px] aspect-[3/4] shrink-0 relative">
                                 <div className="w-full h-full absolute top-[-8px] left-[-12px] bg-[#93C6D3] z-20"></div>
@@ -152,9 +152,33 @@ export const About = () => {
                         </div>
                         <div>                
                             <h2 className="w-fit text-xl pc:text-3xl font-semibold text-[#083459] mb-2 pc:mb-4 bg-[#F5DDB0]">Education</h2>
-                            <div className="w-full h-fit border-b border-[#93C6D3] pb-4 pt-1 flex flex-col">
-                                        {/* 자기 소개 */}
-                                        1
+                            <div className="w-full h-fit border-b border-[#93C6D3] pb-4 pt-1 flex flex-col gap-y-2 pc:gap-y-4">
+                                <div className="">
+                                    <h3 className="text-base pc:text-lg font-bold">코드스테이츠</h3>
+                                    <span className="text-xs pc:text-sm text-[#083459]">2022.12 - 2023.06</span>
+                                    <div className="text-sm pc:text-base">
+                                        [프론트엔드 개발자 부트캠프]<br/>
+                                        · JavaScript, React 및 styled components 학습<br/>
+                                        · 페어 프로그래밍 및 팀 프로젝트 2회를 통한 협업 경험<br/>
+                                        · 토이 프로젝트 스터디를 리드하며 클린 코드를 위한 습관 형성
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 className="text-base pc:text-lg font-bold">양정인력개발센터</h3>
+                                    <span className="text-xs pc:text-sm text-[#083459]">2021.11 - 2022.04</span>
+                                    <div className="text-sm pc:text-base">
+                                        [UIUX웹디자인&웹퍼블리셔]<br/>
+                                        · 기본적 웹 레이아웃과 그리드 개념 학습<br/>
+                                        · HTML, jQuery, CSS를 통한 간단한 웹 만들기 실습
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 className="text-base pc:text-lg font-bold">부산대학교</h3>
+                                    <span className="text-xs pc:text-sm text-[#083459]">2017.02 - 2022.02</span>
+                                    <div className="text-sm pc:text-base">
+                                        · 불어불문학과 학사 졸 / 심리학과 학사 복수 전공
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -201,7 +225,7 @@ export const Project = () => {
                                 <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
                             </h2>
                         </div>
-                        <div className="w-full h-fit flex flex-col items-center gap-y-2 py-3">
+                        <div className="w-full h-fit flex flex-col items-center gap-y-4 py-3">
                         <div className="relative w-[160px] h-[160px]">
                             <div className="absolute inset-0 rounded-full border-4 border-[#F5DDB0] scale-0 transition-all duration-300 group-hover:scale-110"></div>
                                 <div className="w-[160px] h-[160px] rounded-full bg-white overflow-hidden relative">
