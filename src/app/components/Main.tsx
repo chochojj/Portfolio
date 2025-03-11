@@ -169,7 +169,7 @@ export const Project = () => {
         <section className="w-full h-fit flex justify-center py-6 pc:py-12" id="project">
             <article className="w-full max-w-[1320px] px-5 flex flex-col gap-y-6">
                 <h2 className="text-xl lg:text-3xl pc:text-5xl font-semibold text-[#083459] mb-2 lg:mb-4 pc:mb-8 text-center">Project</h2>
-                <div className="flex flex-col pc:grid pc:grid-cols-3 gap-4">
+                <div className="flex flex-col pc:grid pc:grid-cols-3 gap-4 rounded-md border border-[#93C6D3]">
                     {projectData.map((project, index) => (
                         <div key={index}>
                         {/* 프로젝트 정보 출력 */}

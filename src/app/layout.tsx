@@ -4,7 +4,6 @@ import "@/styles/slick.css";
 import "./globals.css";
 import Head from "next/head";
 
-
 export const metadata = {
   metadataBase: '',
   title: '프론트엔드 조지현 - 포트폴리오',
@@ -27,7 +26,7 @@ export const metadata = {
 export default function RootLayout({ children, }: { children: React.ReactNode; }) {
 
   return (
-    <html lang="ko">
+    <html lang="kr">
        <Head>
         <link
           rel="stylesheet"
