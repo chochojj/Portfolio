@@ -1,22 +1,25 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Footer from "./Footer";
 import Link from "next/link";
 import Image from 'next/image'
 import projectData from "@/data/projectData";
+import { log } from "node:console";
 
 export const Main = () => {
-  
+    const [isModal, setIsModal] = useState(null);
+
+
     return (
         <>
-        {/* Main Section */}
+            {isModal?.id &&isModal?.id !=='' && <ProjectModal isModal={isModal} setIsModal={setIsModal}/>}
             <main className="w-full flex flex-col items-center h-fit min-h-screen bg-gray-50 relative">
                 <Intro />
                 <Header />
                 <section className="w-full h-fit flex flex-col gap-y-8 items-center">
                     <About />
-                    <Project />
+                    <Project setIsModal={setIsModal}/>
                     <Contact />
                 </section>
             </main>
@@ -188,7 +191,7 @@ export const About = () => {
     )
 }
 
-export const Project = () => {
+export const Project = ({setIsModal}) => {
 
     return(
         <section className="w-full h-fit flex justify-center py-6 pc:py-12" id="project">
@@ -196,7 +199,7 @@ export const Project = () => {
                 <h2 className="text-xl lg:text-3xl pc:text-5xl font-semibold text-[#083459] mb-2 lg:mb-4 pc:mb-8 text-center">Project</h2>
                 <div className="flex flex-col pc:grid pc:grid-cols-3 gap-4">
                     {projectData.map((project, index) => (
-                        <div key={index} className="flex flex-col justify-between cursor-pointer rounded-md border border-[#93C6D3] bg-white p-4 hover:shadow-md transition-transform duration-200 hover:-translate-y-1 hover:-translate-x-1">
+                        <div key={index} onClick={()=>setIsModal(project)} className="flex flex-col justify-between cursor-pointer rounded-md border border-[#93C6D3] bg-white p-4 hover:shadow-md transition-transform duration-200 hover:-translate-y-1 hover:-translate-x-1">
                             <div className="flex flex-col">
                                 <h2 className="text-lg font-bold text-[#083459] cursor-pointer">
                                     {project.title}
@@ -229,13 +232,7 @@ export const Project = () => {
                         <div className="relative w-[160px] h-[160px]">
                             <div className="absolute inset-0 rounded-full border-4 border-[#F5DDB0] scale-0 transition-all duration-300 group-hover:scale-110"></div>
                                 <div className="w-[160px] h-[160px] rounded-full bg-white overflow-hidden relative">
-                                    <Image
-                                    src="/assets/images/gom.png"
-                                    className="w-full"
-                                    width={200}
-                                    height={200}
-                                    alt="깃헙_프로필_이미지"
-                                    />
+                                    <Image src="/assets/images/gom.png" className="w-full" width={200} height={200} alt="깃헙_프로필_이미지" />
                                 </div>
                             </div>
                             <span className="text-[#F5DDB0] text-base font-bold">Username : @chochojj</span>
@@ -278,5 +275,75 @@ export const Contact = () => {
                 </div>
             </article>
         </section>
+    )
+}
+
+export const ProjectModal = ({isModal,setIsModal}) => {
+    const modalRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        const handleClick = (e: MouseEvent) => {
+            if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+                setIsModal(null)
+            }
+        };
+        window.addEventListener('mousedown', handleClick);
+        return () => window.removeEventListener('mousedown', handleClick);
+    }, [modalRef, setIsModal]);
+    
+    useEffect(() => {
+        document.body.style.overflow = 'hidden';
+
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, []);
+
+    console.log(isModal);
+    
+
+    return(
+       <section className="w-full h-full fixed top-0 left-0 bg-black/30 flex items-center justify-center z-[110]">  
+            <article className="w-full max-w-[1090px] h-fit mx-5 bg-white p-5 rounded-lg relative" ref={modalRef}>
+                <button type="button" className="w-6 h-6 absolute right-4 top-4" onClick={()=> setIsModal(null)}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.4 18.9998L5 17.5998L10.6 11.9998L5 6.39979L6.4 4.99979L12 10.5998L17.6 4.99979L19 6.39979L13.4 11.9998L19 17.5998L17.6 18.9998L12 13.3998L6.4 18.9998Z" fill="#2A2A2A"/>
+                    </svg>
+                </button>
+                <div className="w-full h-fit max-h-[calc(100dvh-80px)] overflow-y-scroll flex flex-col items-center ">
+                    <h2 className="text-h-4 pc:text-h-2 text-gray-700">{isModal?.title}</h2>
+                    <span className="text-sm pc:text-base text-[#083459]">기간 : {isModal?.date} ({isModal?.term})</span>
+                    <div className="mt-4 w-full max-w-[620px] flex flex-col gap-y-4">
+                        <div className="w-full h-fit rounded-md overflow-hidden">
+                            <Image src={`/assets/images/${isModal?.id}.png`} className="w-full" width={600} height={400} alt={`${isModal?.id}_이미지`}/>
+                        </div>
+                        <div>
+                            <p className="w-fit text-base pc:text-lg mb-1 font-medium text-[#083459]">사용 기술</p>
+                            <div className="flex flex-wrap gap-1">
+                                {isModal?.skill?.map((el, index) => (
+                                    <span className="text-sm pc:text-base rounded-sm bg-[#F5DDB0]/40 px-1" key={index}>{el}</span>
+                                ))}
+                            </div>
+                        </div>
+                        <div>
+                            <p className="w-fit text-base pc:text-lg mb-1 font-medium text-[#083459]">기능/역할</p>
+                            <div className="flex flex-wrap gap-1">
+                                {isModal?.role?.map((el, index) => (
+                                    <span className="text-sm pc:text-base rounded-sm bg-[#93C6D3]/30 px-1" key={index}>{el}</span>
+                                ))}
+                            </div>
+                        </div>
+                        <div>
+                            <p className="w-fit text-base pc:text-lg mb-1 font-medium text-[#083459]">상세 설명</p>
+                            <span className="text-sm pc:text-base">{isModal?.content}</span>
+                        </div>
+                        <div>
+                            <p className="w-fit text-base pc:text-lg mb-1 font-medium text-[#083459]">리뷰</p>
+                            <span className="text-sm pc:text-base">{isModal?.review}</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+       </section>
     )
 }
