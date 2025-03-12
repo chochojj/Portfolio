@@ -5,7 +5,6 @@ import Footer from "./Footer";
 import Link from "next/link";
 import Image from 'next/image'
 import projectData from "@/data/projectData";
-import { log } from "node:console";
 import { useDebounce } from "@/hook/useDebounce";
 import useObserver from "@/hook/useObserver";
 
@@ -236,7 +235,7 @@ export const Project = ({setIsModal, setProjectTarget}) => {
             <article className="w-full max-w-[1320px] px-5 flex flex-col gap-y-4 pc:gap-y-6">
                 <h2 className="text-xl lg:text-3xl pc:text-5xl font-semibold text-[#083459] mb-2 lg:mb-4 pc:mb-8 text-center">Project</h2>
                 <div className="flex flex-col pc:grid pc:grid-cols-3 gap-4">
-                    {projectData.map((project, index) => (
+                    {projectData?.map((project, index) => (
                         <div key={index} onClick={()=>setIsModal(project)} className="flex flex-col justify-between cursor-pointer rounded-md border border-[#93C6D3] bg-white p-4 hover:shadow-md transition-transform duration-200 hover:-translate-y-1 hover:-translate-x-1">
                             <div className="flex flex-col">
                                 <h2 className="text-lg font-bold text-[#083459] cursor-pointer">
@@ -319,7 +318,11 @@ export const Contact = ({setContactTarget}) => {
 }
 
 export const ProjectModal = ({isModal,setIsModal}) => {
-    const modalRef = useRef<HTMLDivElement>(null)
+    const modalRef = useRef<HTMLDivElement>(null);
+
+    const moveToUrl = (url) => {
+        window.open(url)
+    }
 
     useEffect(() => {
         const handleClick = (e: MouseEvent) => {
@@ -338,8 +341,6 @@ export const ProjectModal = ({isModal,setIsModal}) => {
             document.body.style.overflow = 'auto';
         };
     }, []);
-
-    console.log(isModal);
     
 
     return(
@@ -381,6 +382,26 @@ export const ProjectModal = ({isModal,setIsModal}) => {
                             <p className="w-fit text-base pc:text-lg mb-1 font-medium text-[#083459]">리뷰</p>
                             <span className="text-sm pc:text-base">{isModal?.review}</span>
                         </div>
+                    </div>
+                    <div className="w-full max-w-[620px] flex gap-x-4 items-center justify-center h-fit mt-6 text-sm pc:text-base font-medium">
+                        {isModal?.git &&
+                            <button 
+                                type="button" 
+                                className="w-full max-w-[350px] h-8 pc:h-10 rounded bg-[#083459] text-white hover:bg-[#083459]/80"
+                                onClick={()=>moveToUrl(isModal?.git)}
+                            >
+                                깃허브 보기
+                            </button>
+                        }
+                        {isModal?.link &&
+                            <button 
+                                type="button" 
+                                className="w-full max-w-[350px] h-8 pc:h-10 rounded bg-[#93C6D3] text-[#083459] hover:bg-[#93C6D3]/80"
+                                onClick={()=>moveToUrl(isModal?.link)}
+                            >
+                                방문하기
+                            </button>
+                        }
                     </div>
                 </div>
             </article>

@@ -78,7 +78,8 @@ const projectData: Project[] = [
     ],
     review:
       "백엔드와 함께 의견을 조율하고 RestAPI를 설계하여 문서화하였으며, 프로젝트를 통해 협업의 중요성과 팀원들과의 원활한 의사소통의 필요성을 깨달았습니다. 프로젝트 진행 중에 발생한 문제들을 팀원들과 함께 해결하고, 서로의 아이디어를 공유하며 프로젝트를 발전시킬 수 있었습니다. 또한, 사용자들의 피드백을 수렴하고 반영하는 과정에서 지속적인 개선과 성장을 이룰 수 있었습니다. \n이번 프로젝트를 통해 협업 능력과 문제 해결 능력을 향상시키는 데 많은 도움이 되었고, 앞으로의 프로젝트에서도 이러한 경험을 적극적으로 활용하고자 합니다.",
-    link: "http://soo-mo.s3-website.ap-northeast-2.amazonaws.com/",
+    link: null,
+    // link: "http://soo-mo.s3-website.ap-northeast-2.amazonaws.com/",
     git: "https://github.com/chochojj/SOOMO",
   },
   {
